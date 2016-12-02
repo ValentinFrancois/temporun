@@ -1,0 +1,42 @@
+Initialize engine version: 5.4.1f1 (649f48bbbf0f)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics 4600 (ID=0x416)
+    Vendor:   Intel
+    VRAM:     912 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Valentin\UTC\Cours\A16\SI28\Jeu Vidéo\Sample Run\Projet Unity\essai_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Valentin\UTC\Cours\A16\SI28\Jeu Vidéo\Sample Run\Projet Unity\essai_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Valentin\UTC\Cours\A16\SI28\Jeu Vidéo\Sample Run\Projet Unity\essai_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Valentin\UTC\Cours\A16\SI28\Jeu Vidéo\Sample Run\Projet Unity\essai_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Valentin\UTC\Cours\A16\SI28\Jeu Vidéo\Sample Run\Projet Unity\essai_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\Valentin\UTC\Cours\A16\SI28\Jeu Vidéo\Sample Run\Projet Unity\essai_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\Valentin\UTC\Cours\A16\SI28\Jeu Vidéo\Sample Run\Projet Unity\essai_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Valentin\UTC\Cours\A16\SI28\Jeu Vidéo\Sample Run\Projet Unity\essai_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Valentin\UTC\Cours\A16\SI28\Jeu Vidéo\Sample Run\Projet Unity\essai_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Valentin\UTC\Cours\A16\SI28\Jeu Vidéo\Sample Run\Projet Unity\essai_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Valentin\UTC\Cours\A16\SI28\Jeu Vidéo\Sample Run\Projet Unity\essai_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Valentin\UTC\Cours\A16\SI28\Jeu Vidéo\Sample Run\Projet Unity\essai_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.054 seconds
+Platform assembly: C:\Users\Valentin\UTC\Cours\A16\SI28\Jeu Vidéo\Sample Run\Projet Unity\essai_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Valentin\UTC\Cours\A16\SI28\Jeu Vidéo\Sample Run\Projet Unity\essai_Data\Managed\System.dll (this message is harmless)
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 1600x900 60Hz; virtual: 1600x900 at 0,0
+<RI> Initialized touch support.
+UnloadTime: 0.637171 ms
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 1660 -> priority: 1 
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 5.299770 ms
+
+Unloading 28 unused Assets to reduce memory usage. Loaded Objects now: 315.
+Total: 0.296005 ms (FindLiveObjects: 0.022169 ms CreateObjectMapping: 0.014369 ms MarkObjects: 0.192547 ms  DeleteObjects: 0.066508 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.527965 ms
+
+Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 176.
+Total: 0.269730 ms (FindLiveObjects: 0.029559 ms CreateObjectMapping: 0.010263 ms MarkObjects: 0.127680 ms  DeleteObjects: 0.101816 ms)
+
