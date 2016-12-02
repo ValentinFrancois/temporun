@@ -1,4 +1,4 @@
 sceneSetups:
-- path: "Assets/Sc\xE8nes/Parties.unity"
+- path: "Assets/Sc\xE8nes/Menu.unity"
   isLoaded: 1
   isActive: 1
