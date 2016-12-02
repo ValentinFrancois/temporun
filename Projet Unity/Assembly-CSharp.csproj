@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{136A8E90-6582-1E6B-C443-027EB7D8D953}</ProjectGuid>
+    <ProjectGuid>{ABA53E5B-35E9-40DE-0C95-B784708A01B1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -45,12 +45,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\AnyKeyPressed.cs" />
+     <Compile Include="Assets\Scripts\InstructionsAnimees.cs" />
      <Compile Include="Assets\Scripts\LoadLevel.cs" />
      <Compile Include="Assets\Scripts\ScrollClouds.cs" />
      <Compile Include="Assets\Scripts\ScrollMontagnes1.cs" />
      <Compile Include="Assets\Scripts\ScrollMontagnes2.cs" />
+     <Compile Include="Assets\Scripts\TextFadeIn.cs" />
+     <Compile Include="Assets\Scripts\TextFadeInterval.cs" />
      <Compile Include="Assets\Scripts\eclair.cs" />
      <Compile Include="Assets\Scripts\quit.cs" />
+     <None Include="Assets\Save\sauv.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

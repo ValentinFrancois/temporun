@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enregistrement>
+	<partie name="partie 1">
+		<sequence time="0">
+			<percussion id="tambour" src="tambour.mp3"/>
+			<corde id="guitare" src="guitare.mp3"/>
+			<clavier id="piano" src="piano.mp3"/>
+			<vent id="tuba" src="tuba.mp3"/>
+		</sequence>
+		<sequence time="8">
+			<percussion id="tambour" src="tambour.mp3"/>
+			<corde id="tambour" src="tambour.mp3"/>
+			<clavier id="tambour" src="tambour.mp3"/>
+			<vent id="tambour" src="tambour.mp3"/>
+		</sequence>
+		<sequence time="16">
+			<percussion id="tambour" src="tambour.mp3"/>
+			<corde id="tambour" src="tambour.mp3"/>
+			<clavier id="tambour" src="tambour.mp3"/>
+			<vent id="tambour" src="tambour.mp3"/>
+		</sequence>
+	</partie>
+	<partie name="partie 2">
+		<sequence time="0">
+			<percussion id="tambour" src="tambour.mp3"/>
+			<corde id="tambour" src="tambour.mp3"/>
+			<clavier id="tambour" src="tambour.mp3"/>
+			<vent id="tambour" src="tambour.mp3"/>
+		</sequence>
+		<sequence time="8">
+			<percussion id="tambour" src="tambour.mp3"/>
+			<corde id="tambour" src="tambour.mp3"/>
+			<clavier id="tambour" src="tambour.mp3"/>
+			<vent id="tambour" src="tambour.mp3"/>
+		</sequence>
+		<sequence time="16">
+			<percussion id="tambour" src="tambour.mp3"/>
+			<corde id="tambour" src="tambour.mp3"/>
+			<clavier id="tambour" src="tambour.mp3"/>
+			<vent id="tambour" src="tambour.mp3"/>
+		</sequence>
+	</partie>
+</enregistrement>
