@@ -48,6 +48,7 @@
      <Compile Include="Assets\Scripts\AnyKeyPressed.cs" />
      <Compile Include="Assets\Scripts\InstructionsAnimees.cs" />
      <Compile Include="Assets\Scripts\LoadLevel.cs" />
+     <Compile Include="Assets\Scripts\PersoController.cs" />
      <Compile Include="Assets\Scripts\ScrollClouds.cs" />
      <Compile Include="Assets\Scripts\ScrollMontagnes1.cs" />
      <Compile Include="Assets\Scripts\ScrollMontagnes2.cs" />
