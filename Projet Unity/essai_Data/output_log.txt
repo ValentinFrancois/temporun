@@ -18,7 +18,7 @@ Platform assembly: C:\Users\Frédéric\temporun\Projet Unity\essai_Data\Managed\
 Loading C:\Users\Frédéric\temporun\Projet Unity\essai_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Frédéric\temporun\Projet Unity\essai_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\Frédéric\temporun\Projet Unity\essai_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.708 seconds
+- Completed reload, in  0.169 seconds
 Platform assembly: C:\Users\Frédéric\temporun\Projet Unity\essai_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Frédéric\temporun\Projet Unity\essai_Data\Managed\System.dll (this message is harmless)
 <RI> Initializing input.
@@ -26,19 +26,3 @@ XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initialized touch support.
-UnloadTime: 1.948863 ms
-Setting up 2 worker threads for Enlighten.
-  Thread -> id: 1f7c -> priority: 1 
-  Thread -> id: 2928 -> priority: 1 
-Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 17.692499 ms
-
-Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 316.
-Total: 6.567922 ms (FindLiveObjects: 0.045981 ms CreateObjectMapping: 0.050497 ms MarkObjects: 0.486497 ms  DeleteObjects: 5.983303 ms)
-
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.568287 ms
-
-Unloading 45 unused Assets to reduce memory usage. Loaded Objects now: 388.
-Total: 0.867484 ms (FindLiveObjects: 0.061992 ms CreateObjectMapping: 0.052139 ms MarkObjects: 0.410546 ms  DeleteObjects: 0.341164 ms)
-

@@ -11,6 +11,11 @@ public class translate : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		transform.Translate (-0.08f, 0, 0); 
+		if (transform.position.x < -12) {
+			Destroy (this.gameObject);
+		}
 
 	}
+
+
 }

@@ -18,7 +18,7 @@ Platform assembly: C:\Users\Frédéric\temporun\Test Saut + cours\essai_Data\Man
 Loading C:\Users\Frédéric\temporun\Test Saut + cours\essai_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Frédéric\temporun\Test Saut + cours\essai_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\Frédéric\temporun\Test Saut + cours\essai_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.134 seconds
+- Completed reload, in  0.063 seconds
 Platform assembly: C:\Users\Frédéric\temporun\Test Saut + cours\essai_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Frédéric\temporun\Test Saut + cours\essai_Data\Managed\System.dll (this message is harmless)
 <RI> Initializing input.
@@ -26,19 +26,19 @@ XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initialized touch support.
-UnloadTime: 0.564911 ms
+UnloadTime: 1.314980 ms
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 2768 -> priority: 1 
-  Thread -> id: 1c40 -> priority: 1 
+  Thread -> id: 221c -> priority: 1 
+  Thread -> id: 9b0 -> priority: 1 
 Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 4.792308 ms
+UnloadTime: 4.618647 ms
 
-Unloading 34 unused Assets to reduce memory usage. Loaded Objects now: 316.
-Total: 2.335188 ms (FindLiveObjects: 0.030380 ms CreateObjectMapping: 0.012726 ms MarkObjects: 0.179408 ms  DeleteObjects: 2.111850 ms)
+Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 316.
+Total: 2.329440 ms (FindLiveObjects: 0.020937 ms CreateObjectMapping: 0.013137 ms MarkObjects: 0.180229 ms  DeleteObjects: 2.114724 ms)
 
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.561627 ms
+UnloadTime: 0.475823 ms
 
 Unloading 45 unused Assets to reduce memory usage. Loaded Objects now: 388.
-Total: 0.302983 ms (FindLiveObjects: 0.034075 ms CreateObjectMapping: 0.013548 ms MarkObjects: 0.156828 ms  DeleteObjects: 0.089088 ms)
+Total: 0.226211 ms (FindLiveObjects: 0.013548 ms CreateObjectMapping: 0.012316 ms MarkObjects: 0.115363 ms  DeleteObjects: 0.084572 ms)
 

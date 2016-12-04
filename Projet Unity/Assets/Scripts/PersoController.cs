@@ -84,10 +84,16 @@ public class PersoController : MonoBehaviour {
 	void OnCollisionEnter(){
 		TouchSol = true;
 		doubleSaut = false;
+
 	}
 
 	void OnCollisionExit(){
 		TouchSol = false;
 		doubleSaut = true;
+	}
+	void OnCollisionStay(Collision c){
+		if (c.gameObject.tag == "TJaune" || c.gameObject.tag == "TRouge" || c.gameObject.tag == "TBleu" || c.gameObject.tag == "TVert") {
+			Destroy (this.gameObject);
+		}
 	}
 }

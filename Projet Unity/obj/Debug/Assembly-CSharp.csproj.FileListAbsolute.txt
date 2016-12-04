@@ -67,3 +67,4 @@ C:\Users\Frédéric\temporun\Projet Unity\Temp\bin\Debug\UnityEditor.xml
 C:\Users\Frédéric\temporun\Projet Unity\Temp\bin\Debug\UnityEngine.UI.xml
 C:\Users\Frédéric\temporun\Projet Unity\Temp\bin\Debug\UnityEngine.Networking.xml
 C:\Users\Frédéric\temporun\Projet Unity\Temp\bin\Debug\UnityEngine.Analytics.xml
+C:\Users\Frédéric\temporun\Projet Unity\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
