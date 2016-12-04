@@ -4,7 +4,7 @@ using System.Collections;
 public class PersoController : MonoBehaviour {
 
 	bool TouchSol = true; 
-	bool doubleSaut = true; 
+
 	int position; 
 	Vector3 move = new Vector3();
 	// Use this for initialization
@@ -72,28 +72,24 @@ public class PersoController : MonoBehaviour {
 
 		if (Input.GetKeyDown (KeyCode.Space) && TouchSol == true) {
 			//move.y = 0;
-			transform.Translate(0,1,0);
-
-		} else if (Input.GetKeyDown (KeyCode.Space) && TouchSol == false && doubleSaut == true) {
-			//move.y = 2; 
 			transform.Translate(0,2,0);
-			doubleSaut = false;
-		}
+
+		} 
 
 	}
 	void OnCollisionEnter(){
 		TouchSol = true;
-		doubleSaut = false;
+
 
 	}
 
 	void OnCollisionExit(){
 		TouchSol = false;
-		doubleSaut = true;
+
 	}
 	void OnCollisionStay(Collision c){
 		if (c.gameObject.tag == "TJaune" || c.gameObject.tag == "TRouge" || c.gameObject.tag == "TBleu" || c.gameObject.tag == "TVert") {
-			Destroy (this.gameObject);
+			//Destroy (this.gameObject);
 		}
 	}
 }

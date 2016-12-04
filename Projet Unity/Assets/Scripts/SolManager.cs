@@ -19,7 +19,7 @@ public class SolManager : MonoBehaviour {
 	void Start () {
 		for (int y = 0; y < 4; y++) {
 
-			for (int i = -8; i <= 52; i = i + 4) {
+			for (int i = -8; i <= 52; i = i + 2) {
 				switch(y){
 				case 0:
 					Instantiate (rouge, new Vector3 (i, Y, -1), Quaternion.identity);
@@ -39,13 +39,14 @@ public class SolManager : MonoBehaviour {
 
 		}
 
-		sample = Random.Range (1, 6) * 8;
+		//sample = Random.Range (1, 6) * 8;
+		sample = 4;
 		compteur = 0; 
-		InvokeRepeating ("CreateNewfloor", 0.81f, 0.81f);
+		InvokeRepeating ("CreateNewfloor", 0.40f, 0.5f);
 	}
 
 	void CreateNewfloor(){
-		if (compteur < sample) {
+		if (compteur < sample-1) {
 
 			for (int y = 0; y < 4; y++) {
 
@@ -68,7 +69,8 @@ public class SolManager : MonoBehaviour {
 			compteur++;
 		}
 		else{
-				sample = Random.Range (1, 6) * 8;
+				//sample = Random.Range (1, 6) * 8;
+			sample = 4;
 				compteur = 0; 
 				for (int y = 0; y < 4; y++) {
 
