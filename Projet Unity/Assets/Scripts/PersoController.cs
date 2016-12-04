@@ -22,19 +22,19 @@ public class PersoController : MonoBehaviour {
 			case 0:
 				break;
 			case 1:
-				move.z = -1.76f;
+				move.z = -1;
 
 				position = 0;
 
 
 				break;
 			case 2:
-				move.z = -2.76f;
+				move.z = -2;
 				position = 1;
 
 				break;
 			case 3:
-				move.z = -3.76f;
+				move.z = -3;
 				position = 2;
 
 				break;
@@ -49,15 +49,15 @@ public class PersoController : MonoBehaviour {
 			switch (position) {
 
 			case 0:
-				move.z = -2.76f;
+				move.z = -2;
 				position = 1; 
 				break; 
 			case 1:
-				move.z = -3.76f;
+				move.z = -3;
 				position = 2;
 				break; 
 			case 2:
-				move.z = -4.76f;
+				move.z = -4;
 				position = 3;
 
 				break;
