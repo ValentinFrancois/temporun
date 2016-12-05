@@ -4,6 +4,7 @@ using System.Collections;
 public class SolManager : MonoBehaviour {
 	public int sample; 
 	public int compteur; 
+	public int instru; 
 	public Transform bleu;
 	public Transform rouge;
 	public Transform vert;
@@ -41,7 +42,7 @@ public class SolManager : MonoBehaviour {
 
 		}
 
-		sample = Random.Range (1, 1) * 16;
+		sample = Random.Range (1, 4) * 16;
 
 		compteur = 0; 
 		InvokeRepeating ("CreateNewfloor", 0.40f, 0.5f);
@@ -71,26 +72,27 @@ public class SolManager : MonoBehaviour {
 			compteur++;
 		}
 		else{
-			sample = Random.Range (1, 1) * 16;
+			sample = Random.Range (1, 4) * 16;
+			instru = Random.Range (0, 5);
+			compteur = 0; 
+			for (int y = 0; y < 4; y++) {
 
-				compteur = 0; 
-				for (int y = 0; y < 4; y++) {
 
-
-					switch (y) {
-					case 0:
-						Instantiate (rougeC, new Vector3 (52, Y, -1), Quaternion.identity);
-						break;
-					case 1:
-						Instantiate (bleuC, new Vector3 (52, Y, -2), Quaternion.identity);
-						break;
-					case 2:
-						Instantiate (vertC, new Vector3 (52, Y, -3), Quaternion.identity);
-						break;
-					case 3:
-						Instantiate (jauneC, new Vector3 (52, Y, -4), Quaternion.identity);
-						break;
+				switch (y) {
+				case 0:
+					Instantiate (rougeC, new Vector3 (52, Y, -1), Quaternion.identity);
+					break;
+				case 1:
+					Instantiate (bleuC, new Vector3 (52, Y, -2), Quaternion.identity);
+					break;
+				case 2:
+					Instantiate (vertC, new Vector3 (52, Y, -3), Quaternion.identity);
+					break;
+				case 3:
+					Instantiate (jauneC, new Vector3 (52, Y, -4), Quaternion.identity);
+					break;
 				}
+
 			}
 		} 
 		
