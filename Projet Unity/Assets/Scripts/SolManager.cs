@@ -14,9 +14,11 @@ public class SolManager : MonoBehaviour {
 	public Transform jauneC; 
 
 
+
 	public const int Y = -3; 
 	// Use this for initialization
 	void Start () {
+
 		for (int y = 0; y < 4; y++) {
 
 			for (int i = -8; i <= 52; i = i + 2) {
@@ -39,8 +41,8 @@ public class SolManager : MonoBehaviour {
 
 		}
 
-		//sample = Random.Range (1, 6) * 8;
-		sample = 4;
+		sample = Random.Range (1, 1) * 16;
+
 		compteur = 0; 
 		InvokeRepeating ("CreateNewfloor", 0.40f, 0.5f);
 	}
@@ -69,8 +71,8 @@ public class SolManager : MonoBehaviour {
 			compteur++;
 		}
 		else{
-				//sample = Random.Range (1, 6) * 8;
-			sample = 4;
+			sample = Random.Range (1, 1) * 16;
+
 				compteur = 0; 
 				for (int y = 0; y < 4; y++) {
 

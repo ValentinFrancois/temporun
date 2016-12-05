@@ -2,6 +2,19 @@
 using System.Collections;
 
 public class PersoController : MonoBehaviour {
+	//Music variables
+	AudioSource Drum1; 
+	AudioSource Drum2;
+	AudioSource Piano; 
+	AudioSource Basse; 
+	AudioSource Melodie1;
+	AudioSource Melodie2;
+	private AudioSource[] tabad; 
+	public AudioClip D11; 
+	public AudioClip D12;
+	public AudioClip D13;
+	public AudioClip P1; 
+	public AudioClip M1; 
 
 	bool TouchSol = true; 
 
@@ -9,6 +22,19 @@ public class PersoController : MonoBehaviour {
 	Vector3 move = new Vector3();
 	// Use this for initialization
 	void Start () {
+		//Definition des AudioSources
+		tabad = GetComponents<AudioSource> ();
+		Drum1 = tabad[0]; 
+		Drum2 = tabad[1]; 
+		Piano = tabad [2];
+		Basse = tabad[3];
+		Melodie1 = tabad[4]; 
+		Melodie2 = tabad[5];
+
+		//Lecture du clip initial
+		Drum1.clip = D13;
+		Drum1.Play (); 
+
 		position = 0;
 	}
 	
@@ -77,19 +103,20 @@ public class PersoController : MonoBehaviour {
 		} 
 
 	}
-	void OnCollisionEnter(){
+	void OnCollisionEnter(Collision c){
 		TouchSol = true;
+		if (c.gameObject.tag == "TJaune" || c.gameObject.tag == "TRouge" || c.gameObject.tag == "TBleu" || c.gameObject.tag == "TVert") {
+			Melodie1.clip = M1; 
+			Melodie1.Play ();
+
+		}
 
 
 	}
+		
 
 	void OnCollisionExit(){
 		TouchSol = false;
+	}
 
-	}
-	void OnCollisionStay(Collision c){
-		if (c.gameObject.tag == "TJaune" || c.gameObject.tag == "TRouge" || c.gameObject.tag == "TBleu" || c.gameObject.tag == "TVert") {
-			//Destroy (this.gameObject);
-		}
-	}
 }
