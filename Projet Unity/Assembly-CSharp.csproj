@@ -46,6 +46,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\AnyKeyPressed.cs" />
+     <Compile Include="Assets\Scripts\Comete.cs" />
+     <Compile Include="Assets\Scripts\Fusée.cs" />
      <Compile Include="Assets\Scripts\InstructionsAnimees.cs" />
      <Compile Include="Assets\Scripts\LoadLevel.cs" />
      <Compile Include="Assets\Scripts\PersoController.cs" />
@@ -58,6 +60,7 @@
      <Compile Include="Assets\Scripts\eclair.cs" />
      <Compile Include="Assets\Scripts\floorManager.cs" />
      <Compile Include="Assets\Scripts\quit.cs" />
+     <Compile Include="Assets\Scripts\spawn.cs" />
      <Compile Include="Assets\Scripts\translate.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Save\sauv.xml" />
