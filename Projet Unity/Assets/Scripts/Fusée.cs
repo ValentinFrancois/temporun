@@ -3,10 +3,8 @@ using System.Collections;
 
 public class Fusée : MonoBehaviour {
 
-    // Use this for initialization
     public Vector3[] positions;
-
-    private bool canGen = true; // Peut-on créer un astéroide ?
+    public GameObject FuséeExplosion;
     void Start()
 
     {
@@ -20,18 +18,22 @@ public class Fusée : MonoBehaviour {
     void OnTriggerEnter(Collider col)
     {
 
+        if (col.tag == "perso")
+        {
+            
+            Destroy(this.gameObject);
+            Instantiate(FuséeExplosion, transform.position, transform.rotation);
+        }
 
-        Destroy(col.gameObject);
-        Destroy(this.gameObject);
-
+        if (col.tag == "FinFusée")
+        {
+            Destroy(this.gameObject);
+        }
     }
-    // Update is called once per frame
+    
     void Update () {
-        transform.position = transform.position + new Vector3(-0.2f, 0, 0);
-        //Création d'un nouveau vecteur de déplacement
+        transform.position = transform.position + new Vector3(-0.1f, 0, 0);
         Vector3 move = new Vector3();
-
-        // On applique le mouvement à l'objet
         transform.position += move;
     }
 }

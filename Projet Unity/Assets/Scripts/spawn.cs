@@ -3,23 +3,35 @@ using System.Collections;
 
 public class spawn : MonoBehaviour {
     
-	public GameObject Sphere;
+	public GameObject Comete;
     public GameObject Fusée;
-	public float interval = 2f;
+    public GameObject Mine;
+    public float intervalComete = 2f;
     public float intervalFusée = 4f;
+    public float intervalMine = 1f;
 	
 	void Start () {
-		InvokeRepeating ("SpawnSphere", interval, interval);
+      
+      
+       InvokeRepeating("SpawnComete", intervalComete, intervalComete);
        InvokeRepeating("SpawnFusée", intervalFusée, intervalFusée);
+       InvokeRepeating("SpawnMine", intervalMine, intervalMine);
 	}
     
-    void SpawnSphere()
+    void SpawnComete()
 	{
-		Instantiate (Sphere);
+		Instantiate (Comete);
        
 	}
+
     void SpawnFusée()
     {
         Instantiate(Fusée);
     }
+
+    void SpawnMine()
+    {
+        Instantiate(Mine);
+    }
+
 }

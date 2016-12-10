@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\Fusée.cs" />
      <Compile Include="Assets\Scripts\InstructionsAnimees.cs" />
      <Compile Include="Assets\Scripts\LoadLevel.cs" />
+     <Compile Include="Assets\Scripts\Mine.cs" />
      <Compile Include="Assets\Scripts\PersoController.cs" />
      <Compile Include="Assets\Scripts\ScrollClouds.cs" />
      <Compile Include="Assets\Scripts\ScrollMontagnes1.cs" />
@@ -62,8 +63,12 @@
      <Compile Include="Assets\Scripts\quit.cs" />
      <Compile Include="Assets\Scripts\spawn.cs" />
      <Compile Include="Assets\Scripts\translate.cs" />
+     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
+     <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
      <None Include="Assets\Save\sauv.xml" />
+     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
