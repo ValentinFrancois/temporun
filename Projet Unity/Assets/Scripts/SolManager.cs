@@ -4,7 +4,7 @@ using System.Collections;
 public class SolManager : MonoBehaviour {
 	public int sample; 
 	public int compteur; 
-	public int instru; 
+	public static int instru; 
 	public Transform bleu;
 	public Transform rouge;
 	public Transform vert;
@@ -42,7 +42,7 @@ public class SolManager : MonoBehaviour {
 
 		}
 
-		sample = Random.Range (1, 4) * 16;
+		sample = 16;
 
 		compteur = 0; 
 		InvokeRepeating ("CreateNewfloor", 0.40f, 0.5f);

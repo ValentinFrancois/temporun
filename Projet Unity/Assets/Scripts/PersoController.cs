@@ -40,11 +40,12 @@ public class PersoController : MonoBehaviour {
 	public AudioClip M2; 
 	public AudioClip M3; 
 	public AudioClip M4; 
-	public int instru = 0; //Permet de gerer les differente categorie d'intrument
-
+	//public int instru = 0; //Permet de gerer les differente categorie d'intrument
+	public GameObject solMan; 
 	bool TouchSol = true; 
-
+	public bool FirstTime = true; 
 	int position; 
+	public int instru = 0; 
 	Vector3 move = new Vector3();
 
 
@@ -133,88 +134,96 @@ public class PersoController : MonoBehaviour {
 	}
 	void OnCollisionEnter(Collision c){
 		TouchSol = true;
-		instru = Random.Range (0, 5);
+
+
 		if (c.gameObject.tag == "TRouge" || c.gameObject.tag == "TJaune" || c.gameObject.tag == "TBleu" || c.gameObject.tag == "TVert") {
-			switch (instru) {
+			
 
-			case 0:
-				if (c.gameObject.tag == "TRouge") {
-					Drum1.clip = D11; 
-				} else if (c.gameObject.tag == "TBleu") {
-					Drum1.clip = D12; 
-				} else if (c.gameObject.tag == "TVert") {
-					Drum1.clip = D13; 
-				} else if (c.gameObject.tag == "TJaune") {
-					Drum1.clip = D14; 
+			if(FirstTime == true){
+				instru = SolManager.instru;
+				FirstTime = false; 
+				switch (instru) {
+
+				case 0:
+					if (c.gameObject.tag == "TRouge") {
+						Drum1.clip = D11; 
+					} else if (c.gameObject.tag == "TBleu") {
+						Drum1.clip = D12; 
+					} else if (c.gameObject.tag == "TVert") {
+						Drum1.clip = D13; 
+					} else if (c.gameObject.tag == "TJaune") {
+						Drum1.clip = D14; 
+					}
+					Drum1.Play ();
+					break; 
+
+				case 1:
+					if (c.gameObject.tag == "TRouge") {
+						Drum2.clip = D21; 
+					} else if (c.gameObject.tag == "TBleu") {
+						Drum2.clip = D22; 
+					} else if (c.gameObject.tag == "TVert") {
+						Drum2.clip = D23; 
+					} else if (c.gameObject.tag == "TJaune") {
+						Drum2.clip = D24; 
+					}
+					Drum2.Play ();
+					break; 
+
+				case 2:
+					if (c.gameObject.tag == "TRouge") {
+						Piano.clip = P1; 
+					} else if (c.gameObject.tag == "TBleu") {
+						Piano.clip = P2; 
+					} else if (c.gameObject.tag == "TVert") {
+						Piano.clip = P3; 
+					} else if (c.gameObject.tag == "TJaune") {
+						Piano.clip = P4; 
+					}
+					Piano.Play ();
+					break; 
+
+				case 3:
+					if (c.gameObject.tag == "TRouge") {
+						Basse.clip = B1; 
+					} else if (c.gameObject.tag == "TBleu") {
+						Basse.clip = B2; 
+					} else if (c.gameObject.tag == "TVert") {
+						Basse.clip = B3; 
+					} else if (c.gameObject.tag == "TJaune") {
+						Basse.clip = B4; 
+					}
+					Basse.Play ();
+					break; 
+
+				case 4:
+					if (c.gameObject.tag == "TRouge") {
+						Guitare.clip = G1; 
+					} else if (c.gameObject.tag == "TBleu") {
+						Guitare.clip = G2; 
+					} else if (c.gameObject.tag == "TVert") {
+						Guitare.clip = G3; 
+					} else if (c.gameObject.tag == "TJaune") {
+						Guitare.clip = G4; 
+					}
+					Guitare.Play ();
+					break; 
+
+				case 5:
+					if (c.gameObject.tag == "TRouge") {
+						Melodie.clip = M1; 
+					} else if (c.gameObject.tag == "TBleu") {
+						Melodie.clip = M2; 
+					} else if (c.gameObject.tag == "TVert") {
+						Melodie.clip = M3; 
+					} else if (c.gameObject.tag == "TJaune") {
+						Melodie.clip = M4; 
+					}
+					Melodie.Play ();
+					break; 
+
 				}
-				Drum1.Play ();
-				break; 
-
-			case 1:
-				if (c.gameObject.tag == "TRouge") {
-					Drum2.clip = D21; 
-				} else if (c.gameObject.tag == "TBleu") {
-					Drum2.clip = D22; 
-				} else if (c.gameObject.tag == "TVert") {
-					Drum2.clip = D23; 
-				} else if (c.gameObject.tag == "TJaune") {
-					Drum2.clip = D24; 
-				}
-				Drum2.Play ();
-				break; 
-
-			case 2:
-				if (c.gameObject.tag == "TRouge") {
-					Piano.clip = P1; 
-				} else if (c.gameObject.tag == "TBleu") {
-					Piano.clip = P2; 
-				} else if (c.gameObject.tag == "TVert") {
-					Piano.clip = P3; 
-				} else if (c.gameObject.tag == "TJaune") {
-					Piano.clip = P4; 
-				}
-				Piano.Play ();
-				break; 
-
-			case 3:
-				if (c.gameObject.tag == "TRouge") {
-					Basse.clip = B1; 
-				} else if (c.gameObject.tag == "TBleu") {
-					Basse.clip = B2; 
-				} else if (c.gameObject.tag == "TVert") {
-					Basse.clip = B3; 
-				} else if (c.gameObject.tag == "TJaune") {
-					Basse.clip = B4; 
-				}
-				Basse.Play ();
-				break; 
-
-			case 4:
-				if (c.gameObject.tag == "TRouge") {
-					Guitare.clip = G1; 
-				} else if (c.gameObject.tag == "TBleu") {
-					Guitare.clip = G2; 
-				} else if (c.gameObject.tag == "TVert") {
-					Guitare.clip = G3; 
-				} else if (c.gameObject.tag == "TJaune") {
-					Guitare.clip = G4; 
-				}
-				Guitare.Play ();
-				break; 
-
-			case 5:
-				if (c.gameObject.tag == "TRouge") {
-					Melodie.clip = M1; 
-				} else if (c.gameObject.tag == "TBleu") {
-					Melodie.clip = M2; 
-				} else if (c.gameObject.tag == "TVert") {
-					Melodie.clip = M3; 
-				} else if (c.gameObject.tag == "TJaune") {
-					Melodie.clip = M4; 
-				}
-				Melodie.Play ();
-				break; 
-
+			
 			}
 		}
 	}
@@ -223,8 +232,19 @@ public class PersoController : MonoBehaviour {
 
 		
 
-	void OnCollisionExit(){
+	void OnCollisionExit(Collision c){
 		TouchSol = false;
+		if (c.gameObject.tag == "TRouge" || c.gameObject.tag == "TJaune" || c.gameObject.tag == "TBleu" || c.gameObject.tag == "TVert") 
+		{
+			FirstTime = true; 
+		}
+	}
+
+	void OnCollisionStay(Collision c){
+		if (c.gameObject.tag == "TRouge" || c.gameObject.tag == "TJaune" || c.gameObject.tag == "TBleu" || c.gameObject.tag == "TVert") 
+		{
+			FirstTime = false; 
+		}
 	}
 
 }
