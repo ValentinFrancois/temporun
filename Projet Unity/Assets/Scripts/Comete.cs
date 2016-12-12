@@ -5,11 +5,12 @@ using System;
 public class Comete : MonoBehaviour {
     public Vector3[] positions;
     public GameObject CometeExplosion;
- 
+    private GameObject FloorManager;
+    public Transform Trou;
     void Start()
 
     {
-        
+        FloorManager = GameObject.FindGameObjectWithTag("SolMan");     
             int randomNumber = UnityEngine.Random.Range(0, positions.Length);
             transform.position = positions[randomNumber];
             
@@ -21,6 +22,7 @@ public class Comete : MonoBehaviour {
 
         if (col.tag == "sol")
         {
+            Instantiate(Trou, col.transform.position + new Vector3(0,0.15f,0), Quaternion.identity, FloorManager.transform);
             Destroy(col.gameObject);
             Destroy(this.gameObject);
             Instantiate(CometeExplosion, transform.position, transform.rotation);

@@ -23,7 +23,7 @@ public class Mine : MonoBehaviour {
         if (col.tag == "perso")
         {
             Destroy(this.gameObject);
-            Instantiate(FuséeExplosion, transform.position, transform.rotation);
+            Instantiate(FuséeExplosion, transform.position, Quaternion.identity);
         }
 
         if (col.tag == "FinFusée")
@@ -35,7 +35,7 @@ public class Mine : MonoBehaviour {
 
     void Update()
     {
-        transform.position = transform.position + new Vector3(-0.25f, 0, 0);
+        transform.position = transform.position + new Vector3(-0.1f, 0, 0);
         Vector3 move = new Vector3();
         transform.position += move;
     }

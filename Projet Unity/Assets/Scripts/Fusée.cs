@@ -5,9 +5,11 @@ public class Fusée : MonoBehaviour {
 
     public Vector3[] positions;
     public GameObject FuséeExplosion;
+    public GameObject FloorManager ;
     void Start()
 
     {
+        FloorManager = GameObject.FindGameObjectWithTag("SolMan");
 
         int randomNumber = UnityEngine.Random.Range(0, positions.Length);
         transform.position = positions[randomNumber];
@@ -20,9 +22,9 @@ public class Fusée : MonoBehaviour {
 
         if (col.tag == "perso")
         {
-            
+            Instantiate(FuséeExplosion, transform.position + new Vector3 (0,0,5), Quaternion.identity, FloorManager.transform);
             Destroy(this.gameObject);
-            Instantiate(FuséeExplosion, transform.position, transform.rotation);
+            
         }
 
         if (col.tag == "FinFusée")
