@@ -22,7 +22,7 @@ public class SolManager : MonoBehaviour {
 
 		for (int y = 0; y < 4; y++) {
 
-			for (int i = -8; i <= 52; i = i + 2) {
+			for (int i = -14; i <= 16; i = i + 2) {
 				switch(y){
 				case 0:
 					Instantiate (rouge, new Vector3 (i, Y, -1), Quaternion.identity);
@@ -56,16 +56,16 @@ public class SolManager : MonoBehaviour {
 
 				switch (y) {
 				case 0:
-					Instantiate (rouge, new Vector3 (52, Y, -1), Quaternion.identity);
+					Instantiate (rouge, new Vector3 (16, Y, -1), Quaternion.identity);
 					break;
 				case 1:
-					Instantiate (bleu, new Vector3 (52, Y, -2), Quaternion.identity);
+					Instantiate (bleu, new Vector3 (16, Y, -2), Quaternion.identity);
 					break;
 				case 2:
-					Instantiate (vert, new Vector3 (52, Y, -3), Quaternion.identity);
+					Instantiate (vert, new Vector3 (16, Y, -3), Quaternion.identity);
 					break;
 				case 3:
-					Instantiate (jaune, new Vector3 (52, Y, -4), Quaternion.identity);
+					Instantiate (jaune, new Vector3 (16, Y, -4), Quaternion.identity);
 					break;
 				}
 			}
@@ -80,16 +80,16 @@ public class SolManager : MonoBehaviour {
 
 				switch (y) {
 				case 0:
-					Instantiate (rougeC, new Vector3 (52, Y, -1), Quaternion.identity);
+					Instantiate (rougeC, new Vector3 (16, Y, -1), Quaternion.identity);
 					break;
 				case 1:
-					Instantiate (bleuC, new Vector3 (52, Y, -2), Quaternion.identity);
+					Instantiate (bleuC, new Vector3 (16, Y, -2), Quaternion.identity);
 					break;
 				case 2:
-					Instantiate (vertC, new Vector3 (52, Y, -3), Quaternion.identity);
+					Instantiate (vertC, new Vector3 (16, Y, -3), Quaternion.identity);
 					break;
 				case 3:
-					Instantiate (jauneC, new Vector3 (52, Y, -4), Quaternion.identity);
+					Instantiate (jauneC, new Vector3 (16, Y, -4), Quaternion.identity);
 					break;
 				}
 

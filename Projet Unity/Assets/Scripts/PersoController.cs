@@ -43,7 +43,7 @@ public class PersoController : MonoBehaviour {
 	//public int instru = 0; //Permet de gerer les differente categorie d'intrument
 	public GameObject solMan; 
 	bool TouchSol = true; 
-	public bool FirstTime = true; 
+
 	int position; 
 	public int instru = 0; 
 	Vector3 move = new Vector3();
@@ -139,9 +139,9 @@ public class PersoController : MonoBehaviour {
 		if (c.gameObject.tag == "TRouge" || c.gameObject.tag == "TJaune" || c.gameObject.tag == "TBleu" || c.gameObject.tag == "TVert") {
 			
 
-			if(FirstTime == true){
+
 				instru = SolManager.instru;
-				FirstTime = false; 
+
 				switch (instru) {
 
 				case 0:
@@ -224,7 +224,7 @@ public class PersoController : MonoBehaviour {
 
 				}
 			
-			}
+
 		}
 	}
 
@@ -234,17 +234,9 @@ public class PersoController : MonoBehaviour {
 
 	void OnCollisionExit(Collision c){
 		TouchSol = false;
-		if (c.gameObject.tag == "TRouge" || c.gameObject.tag == "TJaune" || c.gameObject.tag == "TBleu" || c.gameObject.tag == "TVert") 
-		{
-			FirstTime = true; 
-		}
+
 	}
 
-	void OnCollisionStay(Collision c){
-		if (c.gameObject.tag == "TRouge" || c.gameObject.tag == "TJaune" || c.gameObject.tag == "TBleu" || c.gameObject.tag == "TVert") 
-		{
-			FirstTime = false; 
-		}
-	}
+
 
 }

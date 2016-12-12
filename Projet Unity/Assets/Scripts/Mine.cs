@@ -25,11 +25,7 @@ public class Mine : MonoBehaviour {
             Destroy(this.gameObject);
             Instantiate(FuséeExplosion, transform.position, Quaternion.identity);
         }
-
-        if (col.tag == "FinFusée")
-        {
-            Destroy(this.gameObject);
-        }
+			
     }
    
 
@@ -38,7 +34,7 @@ public class Mine : MonoBehaviour {
         transform.position = transform.position + new Vector3(-0.1f, 0, 0);
         Vector3 move = new Vector3();
         transform.position += move;
-		if (transform.position.x < -12) {
+		if (transform.position.x < -20) {
 			Destroy (this.gameObject);
 		}
 

@@ -27,17 +27,14 @@ public class Fusée : MonoBehaviour {
             
         }
 
-        if (col.tag == "FinFusée")
-        {
-            Destroy(this.gameObject);
-        }
+
     }
     
     void Update () {
         transform.position = transform.position + new Vector3(-0.1f, 0, 0);
         Vector3 move = new Vector3();
         transform.position += move;
-		if (transform.position.x < -12) {
+		if (transform.position.x < -20) {
 			Destroy (this.gameObject);
 		}
 

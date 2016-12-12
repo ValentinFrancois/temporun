@@ -6,9 +6,9 @@ public class spawn : MonoBehaviour {
 	public GameObject Comete;
     public GameObject Fusée;
     public GameObject Mine;
-    public float intervalComete = 2f;
-    public float intervalFusée = 4f;
-    public float intervalMine = 1f;
+    public float intervalComete = 60f;
+    public float intervalFusée = 60f;
+    public float intervalMine = 60f;
 	
 	void Start () {
       
