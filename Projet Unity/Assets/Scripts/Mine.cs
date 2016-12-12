@@ -38,5 +38,9 @@ public class Mine : MonoBehaviour {
         transform.position = transform.position + new Vector3(-0.1f, 0, 0);
         Vector3 move = new Vector3();
         transform.position += move;
+		if (transform.position.x < -12) {
+			Destroy (this.gameObject);
+		}
+
     }
 }
