@@ -6,6 +6,8 @@ public class Mine : MonoBehaviour {
    
     public Vector3[] positions;
     public GameObject FuséeExplosion;
+	private GameObject[] tab_vie;
+	public Transform vie; 
     
     void Start()
 
@@ -22,6 +24,26 @@ public class Mine : MonoBehaviour {
 
         if (col.tag == "perso")
         {
+			PersoController.perso_vie--;
+			tab_vie = GameObject.FindGameObjectsWithTag ("vie");
+			for (int i = 0; i < tab_vie.Length; i++) {
+				Destroy (tab_vie [i]);
+			}
+			switch (PersoController.perso_vie) {
+
+			case 0:
+				Application.LoadLevel ("ReplayTest");
+				break; 
+			case 1: 
+				Instantiate (vie, new Vector3 (-10, -5, -5),  Quaternion.Euler(20,0,0));
+				break; 
+			case 2: 	
+				Instantiate (vie, new Vector3 (-8, -5, -5),  Quaternion.Euler(20,0,0));
+				Instantiate (vie, new Vector3 (-10, -5, -5),  Quaternion.Euler(20,0,0));
+
+
+				break; 
+			}
             Destroy(this.gameObject);
             Instantiate(FuséeExplosion, transform.position, Quaternion.identity);
         }
