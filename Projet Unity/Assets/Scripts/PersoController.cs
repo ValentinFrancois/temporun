@@ -47,6 +47,8 @@ public class PersoController : MonoBehaviour {
 	int position; 
 	public int instru = 0; 
 	Vector3 move = new Vector3();
+	public Transform vie; 
+	static public int perso_vie; 
 
 
 	// Use this for initialization
@@ -63,8 +65,12 @@ public class PersoController : MonoBehaviour {
 		//Lecture du clip initial
 		Drum1.clip = D13;
 		Drum1.Play (); 
-
+		perso_vie = 3;
 		position = 0;
+		Instantiate (vie, new Vector3 (-6, -5, -5), Quaternion.Euler(20,0,0));
+		Instantiate (vie, new Vector3 (-10, -5, -5),  Quaternion.Euler(20,0,0));
+		Instantiate (vie, new Vector3 (-8, -5, -5),  Quaternion.Euler(20,0,0));
+
 	}
 
 
@@ -132,11 +138,12 @@ public class PersoController : MonoBehaviour {
 		} 
 
 	}
+
+
 	void OnCollisionEnter(Collision c){
 		TouchSol = true;
 
-
-		if (c.gameObject.tag == "TRouge" || c.gameObject.tag == "TJaune" || c.gameObject.tag == "TBleu" || c.gameObject.tag == "TVert") {
+		if (c.gameObject.tag == "TRouge" ||c.gameObject.tag == "TBleu" ||c.gameObject.tag == "TJaune" ||c.gameObject.tag == "TVert" ) {
 			
 
 
@@ -236,6 +243,8 @@ public class PersoController : MonoBehaviour {
 		TouchSol = false;
 
 	}
+
+
 
 
 

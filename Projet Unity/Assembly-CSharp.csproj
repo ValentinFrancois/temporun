@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\quit.cs" />
      <Compile Include="Assets\Scripts\spawn.cs" />
      <Compile Include="Assets\Scripts\translate.cs" />
+     <Compile Include="Assets\end.cs" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
      <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
