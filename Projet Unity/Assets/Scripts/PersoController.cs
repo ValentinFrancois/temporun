@@ -9,7 +9,9 @@ public class PersoController : MonoBehaviour {
 	AudioSource Basse; 
 	AudioSource Guitare;
 	AudioSource Melodie;
-	public AudioSource[] tabad; 
+
+	private AudioSource[] tabad; 
+
 	//Drum
 	public AudioClip D11; 
 	public AudioClip D12;
@@ -41,15 +43,18 @@ public class PersoController : MonoBehaviour {
 	private bool Saut = false; //To know if the player just jumped when he arrive on the middle of gate. 
 
 
-
-
 	int position; 
 	public int instru = 0; 
-	private int instruCheck = -1; 
+	private int instruCheck = -2; 
 	Vector3 move = new Vector3();
 	public Transform vie; 
 	static public int perso_vie; 
-
+	private SpriteRenderer batterie;
+	private SpriteRenderer piano;
+	private SpriteRenderer basse;
+	private SpriteRenderer guitare;
+	private SpriteRenderer melodie;
+	private SpriteRenderer synthe;
 
 	// Use this for initialization
 	void Start () {
@@ -62,15 +67,18 @@ public class PersoController : MonoBehaviour {
 		Guitare = tabad[3]; 
 		Melodie = tabad[4];
 
-		//Lecture du clip initial
-		//Drum.clip = D13;
-		//Drum.Play (); 
 		perso_vie = 3;
 		position = 0;
 		Instantiate (vie, new Vector3 (-6, -5, -5), Quaternion.Euler(20,0,0));
 		Instantiate (vie, new Vector3 (-10, -5, -5),  Quaternion.Euler(20,0,0));
 		Instantiate (vie, new Vector3 (-8, -5, -5),  Quaternion.Euler(20,0,0));
 
+		batterie = GameObject.FindGameObjectWithTag("batterie").GetComponent<SpriteRenderer>();
+		piano = GameObject.FindGameObjectWithTag("piano").GetComponent<SpriteRenderer>();
+		basse = GameObject.FindGameObjectWithTag("basse").GetComponent<SpriteRenderer>();
+		guitare = GameObject.FindGameObjectWithTag("guitare").GetComponent<SpriteRenderer>();
+		melodie = GameObject.FindGameObjectWithTag("melodie").GetComponent<SpriteRenderer>();
+		synthe = GameObject.FindGameObjectWithTag("Synthe").GetComponent<SpriteRenderer>();
 	}
 
 
@@ -161,13 +169,16 @@ public class PersoController : MonoBehaviour {
 
 					case 0:
 						if (c.gameObject.tag == "TRouge") {
-
+							batterie.color = Color.red;
 							Drum.clip = D11; 
 						} else if (c.gameObject.tag == "TBleu") {
+							batterie.color = Color.blue;
 							Drum.clip = D12; 
 						} else if (c.gameObject.tag == "TVert") {
+							batterie.color = Color.green;
 							Drum.clip = D13; 
 						} else if (c.gameObject.tag == "TJaune") {
+							batterie.color = Color.yellow;
 							Drum.clip = D14; 
 						}
 						Drum.Play ();
@@ -175,12 +186,16 @@ public class PersoController : MonoBehaviour {
 
 					case 1:
 						if (c.gameObject.tag == "TRouge") {
+							piano.color = Color.red;
 							Piano.clip = P1; 
 						} else if (c.gameObject.tag == "TBleu") {
+							piano.color = Color.blue;
 							Piano.clip = P2; 
 						} else if (c.gameObject.tag == "TVert") {
+							piano.color = Color.green;
 							Piano.clip = P3; 
 						} else if (c.gameObject.tag == "TJaune") {
+							piano.color = Color.yellow;
 							Piano.clip = P4; 
 						}
 						Piano.Play ();
@@ -188,12 +203,16 @@ public class PersoController : MonoBehaviour {
 
 					case 2:
 						if (c.gameObject.tag == "TRouge") {
+							basse.color = Color.red;
 							Basse.clip = B1; 
 						} else if (c.gameObject.tag == "TBleu") {
+							basse.color = Color.blue;
 							Basse.clip = B2; 
 						} else if (c.gameObject.tag == "TVert") {
+							basse.color = Color.green;
 							Basse.clip = B3; 
 						} else if (c.gameObject.tag == "TJaune") {
+							basse.color = Color.yellow;
 							Basse.clip = B4; 
 						}
 						Basse.Play ();
@@ -201,12 +220,16 @@ public class PersoController : MonoBehaviour {
 
 					case 3:
 						if (c.gameObject.tag == "TRouge") {
+							guitare.color = Color.red;
 							Guitare.clip = G1; 
 						} else if (c.gameObject.tag == "TBleu") {
+							guitare.color = Color.blue;
 							Guitare.clip = G2; 
 						} else if (c.gameObject.tag == "TVert") {
+							guitare.color = Color.green;
 							Guitare.clip = G3; 
 						} else if (c.gameObject.tag == "TJaune") {
+							guitare.color = Color.yellow;
 							Guitare.clip = G4; 
 						}
 						Guitare.Play ();
@@ -214,12 +237,16 @@ public class PersoController : MonoBehaviour {
 
 					case 4:
 						if (c.gameObject.tag == "TRouge") {
+							melodie.color = Color.red;
 							Melodie.clip = M1; 
 						} else if (c.gameObject.tag == "TBleu") {
+							melodie.color = Color.blue;
 							Melodie.clip = M2; 
 						} else if (c.gameObject.tag == "TVert") {
+							melodie.color = Color.green;
 							Melodie.clip = M3; 
 						} else if (c.gameObject.tag == "TJaune") {
+							melodie.color = Color.yellow;
 							Melodie.clip = M4; 
 						}
 						Melodie.Play ();

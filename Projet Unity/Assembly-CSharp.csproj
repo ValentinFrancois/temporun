@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\SolManager.cs" />
      <Compile Include="Assets\Scripts\TextFadeIn.cs" />
      <Compile Include="Assets\Scripts\TextFadeInterval.cs" />
+     <Compile Include="Assets\Scripts\Translate_instru.cs" />
      <Compile Include="Assets\Scripts\eclair.cs" />
      <Compile Include="Assets\Scripts\floorManager.cs" />
      <Compile Include="Assets\Scripts\quit.cs" />

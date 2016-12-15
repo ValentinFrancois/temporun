@@ -13,6 +13,12 @@ public class SolManager : MonoBehaviour {
 	public Transform rougeC;
 	public Transform vertC;
 	public Transform jauneC; 
+	public Transform batterie_pf;
+	public Transform piano_pf;
+	public Transform basse_pf;
+	public Transform guitare_pf;
+	public Transform melodie_pf;
+	public Transform synthe_pf;
 
 	int posAleat=3;
 
@@ -53,7 +59,6 @@ public class SolManager : MonoBehaviour {
 
 			for (int y = 0; y < 4; y++) {
 
-
 				switch (y) {
 				case 0:
 					Instantiate (rouge, new Vector3 (16, Y, -(1+posAleat)%4-1), Quaternion.identity);
@@ -78,7 +83,26 @@ public class SolManager : MonoBehaviour {
 			posAleat = Random.Range(1,4);
 			for (int y = 0; y < 4; y++) {
 
-
+				switch (instru) {
+					case 5:
+					Instantiate (batterie_pf, new Vector3 (14,0,-2), Quaternion.identity);
+						break;
+					case 0:
+					Instantiate (piano_pf, new Vector3 (14,0,-2), Quaternion.identity);
+						break;
+					case 1:
+					Instantiate (basse_pf, new Vector3 (14,0,-2), Quaternion.identity);
+						break;
+					case 2:
+					Instantiate (guitare_pf, new Vector3 (14,0,-2), Quaternion.identity);
+						break;
+					case 3:
+					Instantiate (melodie_pf, new Vector3 (14,0,-2), Quaternion.identity);
+						break;
+					case 4:
+					Instantiate (synthe_pf, new Vector3 (14,0,-2), Quaternion.identity);
+						break;
+				}
 				switch (y) {
 				case 0:
 					Instantiate (rougeC, new Vector3 (16, Y, -(1+posAleat)%4-1), Quaternion.identity);
