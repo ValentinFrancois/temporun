@@ -42,6 +42,7 @@ public class PersoController : MonoBehaviour {
 
 
 
+
 	int position; 
 	public int instru = 0; 
 	private int instruCheck = -1; 
@@ -160,6 +161,7 @@ public class PersoController : MonoBehaviour {
 
 					case 0:
 						if (c.gameObject.tag == "TRouge") {
+
 							Drum.clip = D11; 
 						} else if (c.gameObject.tag == "TBleu") {
 							Drum.clip = D12; 
