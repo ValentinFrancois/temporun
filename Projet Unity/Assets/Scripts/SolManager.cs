@@ -2,8 +2,8 @@
 using System.Collections;
 
 public class SolManager : MonoBehaviour {
-	public int sample; 
-	public int compteur; 
+	private int sample; 
+	private int compteur; 
 	public static int instru; 
 	public Transform bleu;
 	public Transform rouge;
@@ -16,7 +16,7 @@ public class SolManager : MonoBehaviour {
 
 
 
-	public const int Y = -3; 
+	private const int Y = -3; 
 	// Use this for initialization
 	void Start () {
 
@@ -42,10 +42,10 @@ public class SolManager : MonoBehaviour {
 
 		}
 
-		sample = 16;
 
+		sample = 0;
 		compteur = 0; 
-		InvokeRepeating ("CreateNewfloor", 0.40f, 0.5f);
+		InvokeRepeating ("CreateNewfloor", 0.46f, 0.5f);
 	}
 
 	void CreateNewfloor(){
@@ -72,12 +72,12 @@ public class SolManager : MonoBehaviour {
 			compteur++;
 		}
 		else{
-			sample = Random.Range (1, 4) * 16;
-			instru = Random.Range (0, 5);
+
+
 			compteur = 0; 
 			for (int y = 0; y < 4; y++) {
 
-
+				sample = 16;
 				switch (y) {
 				case 0:
 					Instantiate (rougeC, new Vector3 (16, Y, -1), Quaternion.identity);
@@ -94,6 +94,10 @@ public class SolManager : MonoBehaviour {
 				}
 
 			}
+			if (instru < 4)
+				instru++;
+			else
+				instru = 0; 
 		} 
 		
 

@@ -7,15 +7,12 @@ public class Mine : MonoBehaviour {
     public Vector3[] positions;
     public GameObject FuséeExplosion;
 	private GameObject[] tab_vie;
-<<<<<<< HEAD
+
 	public Transform vie;
    // public Transform Mine1;
 
 
-=======
-	public Transform vie; 
-    
->>>>>>> f203207d2eb974fe31c95c5e733393b6f25786c6
+
     void Start()
 
     {

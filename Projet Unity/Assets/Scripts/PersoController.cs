@@ -3,23 +3,17 @@ using System.Collections;
 
 public class PersoController : MonoBehaviour {
 	//Music variables
-	AudioSource Drum1; 
-	AudioSource Drum2;
+	AudioSource Drum; 
 	AudioSource Piano; 
 	AudioSource Basse; 
 	AudioSource Guitare;
 	AudioSource Melodie;
-	private AudioSource[] tabad; 
-	//Drum1
+	public AudioSource[] tabad; 
+	//Drum
 	public AudioClip D11; 
 	public AudioClip D12;
 	public AudioClip D13;
 	public AudioClip D14;
-	//Drum2
-	public AudioClip D21;
-	public AudioClip D22;
-	public AudioClip D23;
-	public AudioClip D24;
 	//Piano
 	public AudioClip P1; 
 	public AudioClip P2; 
@@ -40,9 +34,10 @@ public class PersoController : MonoBehaviour {
 	public AudioClip M2; 
 	public AudioClip M3; 
 	public AudioClip M4; 
-	//public int instru = 0; //Permet de gerer les differente categorie d'intrument
+
 	public GameObject solMan; 
-	bool TouchSol = true; 
+	private bool TouchSol = true; 
+
 
 	int position; 
 	public int instru = 0; 
@@ -55,16 +50,15 @@ public class PersoController : MonoBehaviour {
 	void Start () {
 		//Definition des AudioSources
 		tabad = GetComponents<AudioSource> ();
-		Drum1 = tabad[0]; 
-		Drum2 = tabad[1]; 
-		Piano = tabad [2];
-		Basse = tabad[3];
-		Guitare = tabad[4]; 
-		Melodie = tabad[5];
+		Drum = tabad[0]; 
+		Piano = tabad [1];
+		Basse = tabad[2];
+		Guitare = tabad[3]; 
+		Melodie = tabad[4];
 
 		//Lecture du clip initial
-		Drum1.clip = D13;
-		Drum1.Play (); 
+		//Drum.clip = D13;
+		//Drum.Play (); 
 		perso_vie = 3;
 		position = 0;
 		Instantiate (vie, new Vector3 (-6, -5, -5), Quaternion.Euler(20,0,0));
@@ -143,7 +137,7 @@ public class PersoController : MonoBehaviour {
 	void OnCollisionEnter(Collision c){
 		TouchSol = true;
 
-		if (c.gameObject.tag == "TRouge" ||c.gameObject.tag == "TBleu" ||c.gameObject.tag == "TJaune" ||c.gameObject.tag == "TVert" ) {
+		if ((c.gameObject.tag == "TRouge" ||c.gameObject.tag == "TBleu" ||c.gameObject.tag == "TJaune" ||c.gameObject.tag == "TVert") ) {
 			
 
 
@@ -153,31 +147,18 @@ public class PersoController : MonoBehaviour {
 
 				case 0:
 					if (c.gameObject.tag == "TRouge") {
-						Drum1.clip = D11; 
+						Drum.clip = D11; 
 					} else if (c.gameObject.tag == "TBleu") {
-						Drum1.clip = D12; 
+						Drum.clip = D12; 
 					} else if (c.gameObject.tag == "TVert") {
-						Drum1.clip = D13; 
+						Drum.clip = D13; 
 					} else if (c.gameObject.tag == "TJaune") {
-						Drum1.clip = D14; 
+						Drum.clip = D14; 
 					}
-					Drum1.Play ();
+					Drum.Play ();
 					break; 
 
 				case 1:
-					if (c.gameObject.tag == "TRouge") {
-						Drum2.clip = D21; 
-					} else if (c.gameObject.tag == "TBleu") {
-						Drum2.clip = D22; 
-					} else if (c.gameObject.tag == "TVert") {
-						Drum2.clip = D23; 
-					} else if (c.gameObject.tag == "TJaune") {
-						Drum2.clip = D24; 
-					}
-					Drum2.Play ();
-					break; 
-
-				case 2:
 					if (c.gameObject.tag == "TRouge") {
 						Piano.clip = P1; 
 					} else if (c.gameObject.tag == "TBleu") {
@@ -190,7 +171,7 @@ public class PersoController : MonoBehaviour {
 					Piano.Play ();
 					break; 
 
-				case 3:
+				case 2:
 					if (c.gameObject.tag == "TRouge") {
 						Basse.clip = B1; 
 					} else if (c.gameObject.tag == "TBleu") {
@@ -203,7 +184,7 @@ public class PersoController : MonoBehaviour {
 					Basse.Play ();
 					break; 
 
-				case 4:
+				case 3:
 					if (c.gameObject.tag == "TRouge") {
 						Guitare.clip = G1; 
 					} else if (c.gameObject.tag == "TBleu") {
@@ -216,7 +197,7 @@ public class PersoController : MonoBehaviour {
 					Guitare.Play ();
 					break; 
 
-				case 5:
+				case 4:
 					if (c.gameObject.tag == "TRouge") {
 						Melodie.clip = M1; 
 					} else if (c.gameObject.tag == "TBleu") {
@@ -242,7 +223,10 @@ public class PersoController : MonoBehaviour {
 	void OnCollisionExit(Collision c){
 		TouchSol = false;
 
+
 	}
+
+
 
 
 
