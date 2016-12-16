@@ -69,9 +69,9 @@ public class PersoController : MonoBehaviour {
 
 		perso_vie = 3;
 		position = 0;
-		Instantiate (vie, new Vector3 (-6, -5, -5), Quaternion.Euler(20,0,0));
-		Instantiate (vie, new Vector3 (-10, -5, -5),  Quaternion.Euler(20,0,0));
-		Instantiate (vie, new Vector3 (-8, -5, -5),  Quaternion.Euler(20,0,0));
+		Instantiate (vie, new Vector3 (-7f, -4.7f, -5), Quaternion.Euler(20,0,0));
+		Instantiate (vie, new Vector3 (-10f, -4.7f, -5),  Quaternion.Euler(20,0,0));
+		Instantiate (vie, new Vector3 (-8.5f, -4.7f, -5),  Quaternion.Euler(20,0,0));
 
 		batterie = GameObject.FindGameObjectWithTag("batterie").GetComponent<SpriteRenderer>();
 		piano = GameObject.FindGameObjectWithTag("piano").GetComponent<SpriteRenderer>();
@@ -169,16 +169,16 @@ public class PersoController : MonoBehaviour {
 
 					case 0:
 						if (c.gameObject.tag == "TRouge") {
-							batterie.color = Color.red;
+							batterie.color = new Color(1,0.1f,0.1f,1);
 							Drum.clip = D11; 
 						} else if (c.gameObject.tag == "TBleu") {
-							batterie.color = Color.blue;
+							batterie.color = new Color(0.2f,0.5f,1,1);
 							Drum.clip = D12; 
 						} else if (c.gameObject.tag == "TVert") {
-							batterie.color = Color.green;
+							batterie.color = new Color(0.2f,1,0.2f,1);
 							Drum.clip = D13; 
 						} else if (c.gameObject.tag == "TJaune") {
-							batterie.color = Color.yellow;
+							batterie.color = new Color(1,0.8f,0.2f,1);
 							Drum.clip = D14; 
 						}
 						Drum.Play ();
@@ -186,16 +186,16 @@ public class PersoController : MonoBehaviour {
 
 					case 1:
 						if (c.gameObject.tag == "TRouge") {
-							piano.color = Color.red;
+							piano.color = new Color(1,0.1f,0.1f,1);
 							Piano.clip = P1; 
 						} else if (c.gameObject.tag == "TBleu") {
-							piano.color = Color.blue;
+							piano.color = new Color(0.1f,0.5f,1,1);
 							Piano.clip = P2; 
 						} else if (c.gameObject.tag == "TVert") {
-							piano.color = Color.green;
+							piano.color = new Color(0.2f,1,0.2f,1);
 							Piano.clip = P3; 
 						} else if (c.gameObject.tag == "TJaune") {
-							piano.color = Color.yellow;
+							piano.color = new Color(1,0.8f,0.2f,1);
 							Piano.clip = P4; 
 						}
 						Piano.Play ();
@@ -203,16 +203,16 @@ public class PersoController : MonoBehaviour {
 
 					case 2:
 						if (c.gameObject.tag == "TRouge") {
-							basse.color = Color.red;
+							basse.color = new Color(1,0.1f,0.1f,1);
 							Basse.clip = B1; 
 						} else if (c.gameObject.tag == "TBleu") {
-							basse.color = Color.blue;
+							basse.color = new Color(0.1f,0.5f,1,1);
 							Basse.clip = B2; 
 						} else if (c.gameObject.tag == "TVert") {
-							basse.color = Color.green;
+							basse.color = new Color(0.2f,1,0.2f,1);
 							Basse.clip = B3; 
 						} else if (c.gameObject.tag == "TJaune") {
-							basse.color = Color.yellow;
+							basse.color = new Color(1,0.8f,0.2f,1);
 							Basse.clip = B4; 
 						}
 						Basse.Play ();
@@ -220,16 +220,16 @@ public class PersoController : MonoBehaviour {
 
 					case 3:
 						if (c.gameObject.tag == "TRouge") {
-							guitare.color = Color.red;
+							guitare.color = new Color(1,0.1f,0.1f,1);
 							Guitare.clip = G1; 
 						} else if (c.gameObject.tag == "TBleu") {
-							guitare.color = Color.blue;
+							guitare.color = new Color(0.1f,0.5f,1,1);
 							Guitare.clip = G2; 
 						} else if (c.gameObject.tag == "TVert") {
-							guitare.color = Color.green;
+							guitare.color = new Color(0.2f,1,0.2f,1);
 							Guitare.clip = G3; 
 						} else if (c.gameObject.tag == "TJaune") {
-							guitare.color = Color.yellow;
+							guitare.color = new Color(1,0.8f,0.2f,1);
 							Guitare.clip = G4; 
 						}
 						Guitare.Play ();
@@ -237,16 +237,16 @@ public class PersoController : MonoBehaviour {
 
 					case 4:
 						if (c.gameObject.tag == "TRouge") {
-							melodie.color = Color.red;
+							melodie.color = new Color(1,0.1f,0.1f,1);
 							Melodie.clip = M1; 
 						} else if (c.gameObject.tag == "TBleu") {
-							melodie.color = Color.blue;
+							melodie.color = new Color(0.1f,0.5f,1,1);
 							Melodie.clip = M2; 
 						} else if (c.gameObject.tag == "TVert") {
-							melodie.color = Color.green;
+							melodie.color = new Color(0.2f,1,0.2f,1);
 							Melodie.clip = M3; 
 						} else if (c.gameObject.tag == "TJaune") {
-							melodie.color = Color.yellow;
+							melodie.color = new Color(1,0.8f,0.2f,1);
 							Melodie.clip = M4; 
 						}
 						Melodie.Play ();

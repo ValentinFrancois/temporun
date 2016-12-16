@@ -8,7 +8,7 @@ public class ScrollMontagnes2 : MonoBehaviour {
 		MeshRenderer mr = GetComponent<MeshRenderer>();
 		Material mat = mr.material;
 		Vector2 offset = mat.mainTextureOffset;
-		offset.x += Time.deltaTime/20 ;
+		offset.x += Time.deltaTime/50 ;
 		mat.mainTextureOffset = offset;
 	}
 }

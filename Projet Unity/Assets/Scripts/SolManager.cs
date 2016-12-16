@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SolManager : MonoBehaviour {
 	private int sample; 
-	private int compteur; 
+	public static int compteur; 
 	public static int instru; 
 	public Transform bleu;
 	public Transform rouge;

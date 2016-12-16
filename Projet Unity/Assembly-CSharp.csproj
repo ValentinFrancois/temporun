@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\AnyKeyPressed.cs" />
      <Compile Include="Assets\Scripts\Comete.cs" />
+     <Compile Include="Assets\Scripts\EntreeEnnemis.cs" />
      <Compile Include="Assets\Scripts\Fusée.cs" />
      <Compile Include="Assets\Scripts\InstructionsAnimees.cs" />
      <Compile Include="Assets\Scripts\LoadLevel.cs" />
@@ -55,14 +56,19 @@
      <Compile Include="Assets\Scripts\ScrollClouds.cs" />
      <Compile Include="Assets\Scripts\ScrollMontagnes1.cs" />
      <Compile Include="Assets\Scripts\ScrollMontagnes2.cs" />
+     <Compile Include="Assets\Scripts\ScrollMontagnes3.cs" />
      <Compile Include="Assets\Scripts\SolManager.cs" />
+     <Compile Include="Assets\Scripts\SortieEnnemis.cs" />
      <Compile Include="Assets\Scripts\TextFadeIn.cs" />
      <Compile Include="Assets\Scripts\TextFadeInterval.cs" />
      <Compile Include="Assets\Scripts\Translate_instru.cs" />
+     <Compile Include="Assets\Scripts\Vie.cs" />
+     <Compile Include="Assets\Scripts\clock.cs" />
      <Compile Include="Assets\Scripts\eclair.cs" />
      <Compile Include="Assets\Scripts\floorManager.cs" />
      <Compile Include="Assets\Scripts\quit.cs" />
      <Compile Include="Assets\Scripts\spawn.cs" />
+     <Compile Include="Assets\Scripts\test.cs" />
      <Compile Include="Assets\Scripts\translate.cs" />
      <Compile Include="Assets\end.cs" />
      <Compile Include="Assets\rotation.cs" />

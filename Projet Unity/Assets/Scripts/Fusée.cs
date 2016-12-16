@@ -36,11 +36,11 @@ public class Fusée : MonoBehaviour {
 				Application.LoadLevel ("ReplayTest");
 				break; 
 			case 1: 
-				Instantiate (vie, new Vector3 (-10, -5, -5),  Quaternion.Euler(20,0,0));
+				Instantiate (vie, new Vector3 (-10, -4.7f, -5),  Quaternion.Euler(20,0,0));
 				break; 
 			case 2: 	
-				Instantiate (vie, new Vector3 (-8, -5, -5),  Quaternion.Euler(20,0,0));
-				Instantiate (vie, new Vector3 (-10, -5, -5),  Quaternion.Euler(20,0,0));
+				Instantiate (vie, new Vector3 (-8.5f, -4.7f, -5),  Quaternion.Euler(20,0,0));
+				Instantiate (vie, new Vector3 (-10, -4.7f, -5),  Quaternion.Euler(20,0,0));
 
 			
 				break; 

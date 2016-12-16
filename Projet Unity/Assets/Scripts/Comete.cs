@@ -3,26 +3,24 @@ using System.Collections;
 using System;
 
 public class Comete : MonoBehaviour {
-    public Vector3[] positions;
     public GameObject CometeExplosion;
     private GameObject FloorManager;
     public Transform Trou;
+	int compteur;
+	
     void Start()
-
     {
-        FloorManager = GameObject.FindGameObjectWithTag("SolMan");     
-            int randomNumber = UnityEngine.Random.Range(0, positions.Length);
-            transform.position = positions[randomNumber];
+        FloorManager = GameObject.FindGameObjectWithTag("SolMan");  
             
     }
 
 
     void OnTriggerEnter(Collider col)
     {
-
-        if (col.tag == "sol")
+        if (col.tag == "sol" && compteur==0)
         {
             Instantiate(Trou, col.transform.position + new Vector3(0,0.15f,0), Quaternion.identity, FloorManager.transform);
+			compteur+=1;
             Destroy(col.gameObject);
             Destroy(this.gameObject);
             Instantiate(CometeExplosion, transform.position, transform.rotation);
@@ -33,10 +31,12 @@ public class Comete : MonoBehaviour {
 
    
     void Update() {
-       
-        transform.position = transform.position + new Vector3(-0.07f, -0.1f, 0);
+        transform.position = transform.position + new Vector3(-3.5f*Time.deltaTime, -5f*Time.deltaTime, 0);
         Vector3 move = new Vector3();
         transform.position += move;
+		if (transform.position.y<-20){
+			Destroy(this.gameObject);
+		}
 
     }
 }
