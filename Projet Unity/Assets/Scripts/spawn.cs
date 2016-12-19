@@ -14,7 +14,7 @@ public class spawn : MonoBehaviour {
 	public float compteurComete;
 	public float constante = 1f;
 	GameObject comete;
-	int pos1, pos2, pos3, pos4;
+	public int pos1, pos2, pos3, pos4;
 	int compt=0;
    // private GameObject FloorManager;
 
@@ -35,43 +35,43 @@ public class spawn : MonoBehaviour {
 		}
 		if (temps > compteurComete){
 			if (EntreeEnnemis.tableauEnnemis[0]==0 || EntreeEnnemis.tableauEnnemis[1]==0 || EntreeEnnemis.tableauEnnemis[2]==0 || EntreeEnnemis.tableauEnnemis[3]==0){
-				pos1 = Random.Range(0,3);
+				pos1 = Random.Range(0,4);
 				if (EntreeEnnemis.tableauEnnemis[pos1]==0){
 					comete = Instantiate (Comete);
 					comete.transform.position = new Vector3(8,10,-pos1-1);
 				}
 				else {
-					pos2 = Random.Range(0,3);
+					pos2 = Random.Range(0,4);
 					while (pos2 == pos1){
-						pos2 = Random.Range(0,3);
+						pos2 = Random.Range(0,4);
 					}
 					if (EntreeEnnemis.tableauEnnemis[pos2]==0){
 						comete = Instantiate (Comete);
 						comete.transform.position = new Vector3(8,10,-pos2-1);
 					}
 					else{
-						pos3 = Random.Range(0,3);
+						pos3 = Random.Range(0,4);
 						while (pos3 == pos1 || pos3 == pos2){
-							pos3 = Random.Range(0,3);
+							pos3 = Random.Range(0,4);
 						}
 						if (EntreeEnnemis.tableauEnnemis[pos3]==0){
 							comete = Instantiate (Comete);
 							comete.transform.position = new Vector3(8,10,-pos3-1);
 						}
 						else{
-							pos4 = Random.Range(0,3);
+							pos4 = Random.Range(0,4);
 							while (pos4 == pos1 || pos4 == pos2 || pos4 == pos3){
-								pos4 = Random.Range(0,3);
+								pos4 = Random.Range(0,4);
 							}
 							comete = Instantiate (Comete);
 							comete.transform.position = new Vector3(8,10,-pos4-1);
 						}
 					}
 				}
-				compteurComete = temps+Random.Range(6,18)*difficulte;
+				compteurComete = temps+Random.Range(3,10)*difficulte;
 			}
 			else{
-				compteurComete = temps+Random.Range(1,3)*difficulte;
+				compteurComete = temps+1;
 			}
 			
 		}

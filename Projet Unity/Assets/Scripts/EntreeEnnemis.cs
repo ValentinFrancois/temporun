@@ -8,7 +8,14 @@ public class EntreeEnnemis : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		tableauEnnemis[0] = 0;
+		tableauEnnemis[1] = 0;
+		tableauEnnemis[2] = 0;
+		tableauEnnemis[3] = 0;
+		tab[0] = 0;
+		tab[1] = 0;
+		tab[2] = 0;
+		tab[3] = 0;
 	}
 	
 	// Update is called once per frame
@@ -26,7 +33,7 @@ public class EntreeEnnemis : MonoBehaviour {
 			if (col.tag=="fusee"){pos=pos-5;}
 			tableauEnnemis[pos]+=1;
 		}
-		if (col.tag=="TRouge" /*|| col.tag=="TBleu" || col.tag=="TVert"|| col.tag=="TJaune"*/){
+		if (col.tag=="portail"){
 			tableauEnnemis[0]+=1;
 			tableauEnnemis[1]+=1;
 			tableauEnnemis[2]+=1;

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Fusée : MonoBehaviour {
 
@@ -33,7 +34,8 @@ public class Fusée : MonoBehaviour {
 			switch (PersoController.perso_vie) {
 
 			case 0:
-				Application.LoadLevel ("ReplayTest");
+				SceneManager.LoadScene("GameOver");
+				
 				break; 
 			case 1: 
 				Instantiate (vie, new Vector3 (-10, -4.7f, -5),  Quaternion.Euler(20,0,0));
@@ -54,7 +56,7 @@ public class Fusée : MonoBehaviour {
     }
     
     void Update () {
-        transform.position = transform.position + new Vector3(-0.1f, 0, 0);
+        transform.position = transform.position + new Vector3(-10f*Time.deltaTime, 0, 0);
         Vector3 move = new Vector3();
         transform.position += move;
 		if (transform.position.x < -20) {

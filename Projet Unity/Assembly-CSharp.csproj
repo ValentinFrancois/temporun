@@ -46,7 +46,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\AnyKeyPressed.cs" />
+     <Compile Include="Assets\Scripts\AspectUtility.cs" />
      <Compile Include="Assets\Scripts\Comete.cs" />
+     <Compile Include="Assets\Scripts\ConversionMP3.cs" />
      <Compile Include="Assets\Scripts\EntreeEnnemis.cs" />
      <Compile Include="Assets\Scripts\Fusée.cs" />
      <Compile Include="Assets\Scripts\InstructionsAnimees.cs" />
@@ -65,13 +67,13 @@
      <Compile Include="Assets\Scripts\Vie.cs" />
      <Compile Include="Assets\Scripts\clock.cs" />
      <Compile Include="Assets\Scripts\eclair.cs" />
+     <Compile Include="Assets\Scripts\end.cs" />
      <Compile Include="Assets\Scripts\floorManager.cs" />
      <Compile Include="Assets\Scripts\quit.cs" />
+     <Compile Include="Assets\Scripts\rotation.cs" />
      <Compile Include="Assets\Scripts\spawn.cs" />
      <Compile Include="Assets\Scripts\test.cs" />
      <Compile Include="Assets\Scripts\translate.cs" />
-     <Compile Include="Assets\end.cs" />
-     <Compile Include="Assets\rotation.cs" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
      <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

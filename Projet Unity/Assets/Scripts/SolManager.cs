@@ -19,41 +19,19 @@ public class SolManager : MonoBehaviour {
 	public Transform guitare_pf;
 	public Transform melodie_pf;
 	public Transform synthe_pf;
+	public Transform detecteur;
+	
+	Transform nouveau;
+	Transform fils;
+	
+	float compteurTime;
+	float currentTime = 0;
 
 	int posAleat=3;
 
 	private const int Y = -3; 
 	// Use this for initialization
-	void Start () {
-
-		for (int y = 0; y < 4; y++) {
-
-			for (int i = -14; i <= 16; i = i + 2) {
-				switch(y){
-				case 0:
-					Instantiate (rouge, new Vector3 (i, Y, -(1+posAleat)%4-1), Quaternion.identity);
-					break;
-				case 1:
-					Instantiate (bleu, new Vector3 (i, Y, -(2+posAleat)%4-1), Quaternion.identity);
-					break;
-				case 2:
-					Instantiate (vert, new Vector3 (i, Y, -(3+posAleat)%4-1), Quaternion.identity);
-					break;
-				case 3:
-					Instantiate (jaune, new Vector3 (i, Y, -(4+posAleat)%4-1), Quaternion.identity);
-					break;
-				}
-
-			}
-
-		}
-
-
-		sample = 0;
-		compteur = 0; 
-		InvokeRepeating ("CreateNewfloor", 0.46f, 0.5f);
-	}
-
+	
 	void CreateNewfloor(){
 		if (compteur < sample-1) {
 
@@ -105,18 +83,23 @@ public class SolManager : MonoBehaviour {
 				}
 				switch (y) {
 				case 0:
-					Instantiate (rougeC, new Vector3 (16, Y, -(1+posAleat)%4-1), Quaternion.identity);
+					nouveau = Instantiate (rougeC, new Vector3 (16, Y, -(1+posAleat)%4-1), Quaternion.identity) as Transform;
+					nouveau.GetChild(1).GetComponent<ParticleSystemRenderer>().sortingOrder = ((1+posAleat)%4+1)*2;
 					break;
 				case 1:
-					Instantiate (bleuC, new Vector3 (16, Y, -(2+posAleat)%4-1), Quaternion.identity);
+					nouveau = Instantiate (bleuC, new Vector3 (16, Y, -(2+posAleat)%4-1), Quaternion.identity) as Transform;
+					nouveau.GetChild(1).GetComponent<ParticleSystemRenderer>().sortingOrder = ((2+posAleat)%4+1)*2;
 					break;
 				case 2:
-					Instantiate (vertC, new Vector3 (16, Y, -(3+posAleat)%4-1), Quaternion.identity);
+					nouveau = Instantiate (vertC, new Vector3 (16, Y, -(3+posAleat)%4-1), Quaternion.identity) as Transform;
+					nouveau.GetChild(1).GetComponent<ParticleSystemRenderer>().sortingOrder = ((3+posAleat)%4+1)*2;
 					break;
 				case 3:
-					Instantiate (jauneC, new Vector3 (16, Y, -(4+posAleat)%4-1), Quaternion.identity);
+					nouveau = Instantiate (jauneC, new Vector3 (16, Y, -(4+posAleat)%4-1), Quaternion.identity) as Transform;
+					nouveau.GetChild(1).GetComponent<ParticleSystemRenderer>().sortingOrder = ((4+posAleat)%4+1)*2;
 					break;
 				}
+				Instantiate (detecteur, new Vector3 (16, 18, -2), Quaternion.identity);
 			}
 			if (instru < 4)
 				instru++;
@@ -125,6 +108,50 @@ public class SolManager : MonoBehaviour {
 		} 
 		
 
+	}
+	
+	/*
+	IEnumerator SpawnAtIntervals()
+	{
+		while(true){
+			yield return new WaitForSeconds(0.5f);
+			CreateNewfloor();
+		}
+		
+	}
+	
+	void Awake(){
+		StartCoroutine(SpawnAtIntervals());
+	}*/
+		
+	void Start () {
+			for (int y = 0; y < 4; y++) {
+
+			for (int i = -14; i <= 16; i = i + 2) {
+				switch(y){
+				case 0:
+					Instantiate (rouge, new Vector3 (i, Y, -(1+posAleat)%4-1), Quaternion.identity);
+					break;
+				case 1:
+					Instantiate (bleu, new Vector3 (i, Y, -(2+posAleat)%4-1), Quaternion.identity);
+					break;
+				case 2:
+					Instantiate (vert, new Vector3 (i, Y, -(3+posAleat)%4-1), Quaternion.identity);
+					break;
+				case 3:
+					Instantiate (jaune, new Vector3 (i, Y, -(4+posAleat)%4-1), Quaternion.identity);
+					break;
+				}
+
+			}
+
+		}
+
+
+		sample = 0;
+		compteur = 0; 
+		InvokeRepeating ("CreateNewfloor", 0.46f, 0.5f);
+		
 	}
 		
 }

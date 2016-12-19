@@ -6,7 +6,6 @@ public class Comete : MonoBehaviour {
     public GameObject CometeExplosion;
     private GameObject FloorManager;
     public Transform Trou;
-	int compteur;
 	
     void Start()
     {
@@ -17,10 +16,9 @@ public class Comete : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.tag == "sol" && compteur==0)
+        if (col.tag == "sol")
         {
             Instantiate(Trou, col.transform.position + new Vector3(0,0.15f,0), Quaternion.identity, FloorManager.transform);
-			compteur+=1;
             Destroy(col.gameObject);
             Destroy(this.gameObject);
             Instantiate(CometeExplosion, transform.position, transform.rotation);

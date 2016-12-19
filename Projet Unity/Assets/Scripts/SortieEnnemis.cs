@@ -20,7 +20,7 @@ public class SortieEnnemis : MonoBehaviour {
 			if (col.tag=="fusee"){pos=pos-5;}
 			EntreeEnnemis.tableauEnnemis[pos]-=1;
 		}
-		if (col.tag=="TRouge"){
+		if (col.tag=="portail"){
 			EntreeEnnemis.tableauEnnemis[0]-=1;
 			EntreeEnnemis.tableauEnnemis[1]-=1;
 			EntreeEnnemis.tableauEnnemis[2]-=1;

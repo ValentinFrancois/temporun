@@ -137,6 +137,7 @@ public class PersoController : MonoBehaviour {
 			}
 		}
 		transform.position = move; 
+		GetComponent<SpriteRenderer>().sortingOrder = 2*(int)(-move.z)-1;
 
 
 		if (Input.GetKeyDown (KeyCode.Space) && TouchSol == true) {
@@ -163,7 +164,7 @@ public class PersoController : MonoBehaviour {
 			else 
 			{
 				
-				instruCheck = instru;  
+				instruCheck = instru; 
 				if (Saut == false) {
 					switch (instru) {
 

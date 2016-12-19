@@ -26,12 +26,6 @@ public class Vie : MonoBehaviour {
 				Destroy (tab_vie[i]);
 			}
 			switch (PersoController.perso_vie) {
-				case 0:
-					Application.LoadLevel ("ReplayTest");
-					break; 
-				case 1: 
-					Instantiate (vie, new Vector3 (-10, -4.7f, -5),  Quaternion.Euler(20,0,0));
-					break; 
 				case 2: 	
 					Instantiate (vie, new Vector3 (-8.5f, -4.7f, -5),  Quaternion.Euler(20,0,0));
 					Instantiate (vie, new Vector3 (-10, -4.7f, -5),  Quaternion.Euler(20,0,0));
@@ -41,6 +35,7 @@ public class Vie : MonoBehaviour {
 					Instantiate (vie, new Vector3 (-10, -4.7f, -5),  Quaternion.Euler(20,0,0));
 					Instantiate (vie, new Vector3 (-7, -4.7f, -5),  Quaternion.Euler(20,0,0));
 					break; 
+				default:break;
 			}
             Destroy(this.gameObject);
         }

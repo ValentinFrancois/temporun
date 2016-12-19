@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Mine : MonoBehaviour {
 
@@ -36,7 +37,7 @@ public class Mine : MonoBehaviour {
 			switch (PersoController.perso_vie) {
 
 			case 0:
-				Application.LoadLevel ("ReplayTest");
+				SceneManager.LoadScene("GameOver");
 				break; 
 			case 1: 
 				Instantiate (vie, new Vector3 (-10, -4.7f, -5),  Quaternion.Euler(20,0,0));
