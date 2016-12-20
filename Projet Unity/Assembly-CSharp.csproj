@@ -67,8 +67,9 @@
      <Compile Include="Assets\Scripts\Vie.cs" />
      <Compile Include="Assets\Scripts\clock.cs" />
      <Compile Include="Assets\Scripts\eclair.cs" />
-     <Compile Include="Assets\Scripts\end.cs" />
+     <Compile Include="Assets\Scripts\endSaut.cs" />
      <Compile Include="Assets\Scripts\floorManager.cs" />
+     <Compile Include="Assets\Scripts\mort.cs" />
      <Compile Include="Assets\Scripts\quit.cs" />
      <Compile Include="Assets\Scripts\rotation.cs" />
      <Compile Include="Assets\Scripts\spawn.cs" />

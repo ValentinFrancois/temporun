@@ -37,7 +37,8 @@ public class Mine : MonoBehaviour {
 			switch (PersoController.perso_vie) {
 
 			case 0:
-				SceneManager.LoadScene("GameOver");
+				//SceneManager.LoadScene("GameOver");
+				GameObject.Find("Perso").GetComponent<Animator>().SetBool("mort",true);
 				break; 
 			case 1: 
 				Instantiate (vie, new Vector3 (-10, -4.7f, -5),  Quaternion.Euler(20,0,0));

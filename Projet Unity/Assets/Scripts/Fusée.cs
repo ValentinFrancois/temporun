@@ -9,6 +9,7 @@ public class Fusée : MonoBehaviour {
     public GameObject FloorManager ;
 	private GameObject[] tab_vie;
 	public Transform vie; 
+	int random;
     void Start()
 
     {
@@ -16,6 +17,10 @@ public class Fusée : MonoBehaviour {
 
         int randomNumber = UnityEngine.Random.Range(0, positions.Length);
         transform.position = positions[randomNumber];
+		random = Random.Range(0,2);
+		if (random==0){
+			transform.position += new Vector3(0,0.75f,0);
+		}
 
     }
 
@@ -34,7 +39,8 @@ public class Fusée : MonoBehaviour {
 			switch (PersoController.perso_vie) {
 
 			case 0:
-				SceneManager.LoadScene("GameOver");
+				//SceneManager.LoadScene("GameOver");
+				GameObject.Find("Perso").GetComponent<Animator>().SetBool("mort",true);
 				
 				break; 
 			case 1: 

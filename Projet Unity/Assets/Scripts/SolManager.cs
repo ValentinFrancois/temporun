@@ -23,9 +23,6 @@ public class SolManager : MonoBehaviour {
 	
 	Transform nouveau;
 	Transform fils;
-	
-	float compteurTime;
-	float currentTime = 0;
 
 	int posAleat=3;
 

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PersoController : MonoBehaviour {
 	Animator animator;
@@ -43,7 +44,7 @@ public class PersoController : MonoBehaviour {
 	private bool Saut = false; //To know if the player just jumped when he arrive on the middle of gate. 
 
 
-	int position; 
+	public int position;
 	public int instru = 0; 
 	private int instruCheck = -2; 
 	Vector3 move = new Vector3();
@@ -55,10 +56,15 @@ public class PersoController : MonoBehaviour {
 	private SpriteRenderer guitare;
 	private SpriteRenderer melodie;
 	private SpriteRenderer synthe;
-
+	
+	public bool mort;
+	float DeathTime;
+	float StopTime;
 	// Use this for initialization
 	void Start () {
-
+		mort = false;
+		DeathTime = 0;
+		StopTime = 0;
 		//Definition des AudioSources
 		tabad = GetComponents<AudioSource> ();
 		Drum = tabad[0]; 
@@ -85,9 +91,15 @@ public class PersoController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		move = transform.position;
+		if (DeathTime > 0){
+			DeathTime+=Time.deltaTime;
+		}
+		if (DeathTime > 0 && DeathTime >= StopTime){
+			SceneManager.LoadScene("GameOver"); 
+		}
 
 		// Récupération des touches haut et bas
-		if (Input.GetKeyDown (KeyCode.UpArrow)) {
+		if (Input.GetKeyDown (KeyCode.UpArrow) && TouchSol) {
 			switch (position) {
 			case 0:
 				break;
@@ -114,7 +126,7 @@ public class PersoController : MonoBehaviour {
 		}
 
 
-		if (Input.GetKeyDown (KeyCode.DownArrow)) {
+		if (Input.GetKeyDown (KeyCode.DownArrow) && TouchSol) {
 			switch (position) {
 
 			case 0:
@@ -137,17 +149,30 @@ public class PersoController : MonoBehaviour {
 			}
 		}
 		transform.position = move; 
+		GameObject.Find("Ombre").transform.position = new Vector3(-9f,-2.84f,move.z);
 		GetComponent<SpriteRenderer>().sortingOrder = 2*(int)(-move.z)-1;
 
 
-		if (Input.GetKeyDown (KeyCode.Space) && TouchSol == true) {
+		if (Input.GetKey (KeyCode.Space) && TouchSol == true) {
 			TouchSol = false; 
 			Saut = true; 
-			transform.Translate(0,2,0);
+			GetComponent<Animator>().SetBool("saut",true);
+			GameObject.Find("Ombre").GetComponent<Animator>().SetBool("saut",true);
 
 
 		} 
 
+	}
+	
+	void OnTriggerEnter(Collider col)
+    {
+		Debug.Log(col.transform.localPosition.x);
+		if (col.tag == "trou" && col.transform.localPosition.x>=11){
+			mort = true;
+			GetComponent<Collider>().isTrigger = true;
+			DeathTime = Time.time;
+			StopTime = DeathTime + 1f;
+		}
 	}
 
 
