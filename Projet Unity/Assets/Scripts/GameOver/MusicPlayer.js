@@ -84,6 +84,13 @@ var textclock1 : Text;
 var textclock2 : Text;
 var division : float;
 
+var D1playing;
+var D2playing;
+var Bplaying;
+var Gplaying;
+var Mplaying;
+var Pplaying;
+
 var initTime : float = 0;
 
 var XMLFile : WWW;
@@ -97,6 +104,13 @@ function Start () {
 	Basse = tabad[3] as AudioSource;
 	Guitare = tabad[4] as AudioSource; 
 	Melodie = tabad[5] as AudioSource;
+	
+	D1playing = false;
+	D2playing = false;
+	Gplaying = false;
+	Bplaying = false;
+	Pplaying = false;
+	Mplaying = false;
 	
 	 TextesBoutons.GetComponent(CanvasGroup).alpha=0;
 	 GameOverPere.GetComponent(CanvasGroup).alpha=0;
@@ -180,7 +194,7 @@ function Update () {
 
 	if (IsStarted && IsPlaying){
 		Temps += Time.deltaTime;
-		avancement.GetComponent(RectTransform).sizeDelta.x = 500/Max*Temps*1.06f;
+		avancement.GetComponent(RectTransform).sizeDelta.x += 1f*500/Max*Time.deltaTime;
 		textclock2 = CurrentTime.GetComponent(Text);
 		 min2 = (parseInt(Temps))/60;
 		 sec2 = (parseInt(Temps))%60;
@@ -215,6 +229,22 @@ function Update () {
 							if (int.Parse(reader3.GetAttribute("time")) == Sequence){
 								while (reader3.Read() && reader3.Name!= "sequence" ){
 									if (reader3.NodeType == XmlNodeType.Element){
+										var instru = reader3.GetAttribute("type");
+										switch(instru){
+											case "drum1" : D1playing = true;
+											break;
+											case "drum2" : D2playing = true;
+											break;
+											case "guitare" : Gplaying = true;
+											break;
+											case "basse" : Bplaying = true;
+											break;
+											case "piano" : Pplaying = true;
+											break;
+											case "melodie" : Mplaying = true;
+											break;
+											default : break;
+										}
 										var code = reader3.GetAttribute("clip");
 										switch(code){
 											case "D11" : Drum1.clip = D11;
@@ -323,12 +353,12 @@ function Pause (){
 function Play() {
 	var reader2:XmlTextReader = new XmlTextReader(new StringReader(XMLFile.text));
 	if (IsPlaying==0 && IsStarted ==1){
-		Drum1.UnPause();
-		Drum2.UnPause();
-		Basse.UnPause();
-		Guitare.UnPause();
-		Melodie.UnPause();
-		Piano.UnPause();
+		if (D1playing) Drum1.UnPause();
+		if (D2playing)Drum2.UnPause();
+		if (Bplaying)Basse.UnPause();
+		if (Gplaying)Guitare.UnPause();
+		if (Mplaying)Melodie.UnPause();
+		if (Pplaying)Piano.UnPause();
 		IsPlaying = 1;		
 	}
 	else {
@@ -346,6 +376,12 @@ function Play() {
 			Guitare.time=0f;
 			Melodie.time=0f;
 			Piano.time=0f;
+			D1playing = false;
+			D2playing = false;
+			Gplaying = false;
+			Bplaying = false;
+			Pplaying = false;
+			Mplaying = false;
 			Temps = 0;
 			Sequence = 0;
 			IsStarted = 1;
@@ -378,6 +414,22 @@ function Play() {
 					reader2.Read();
 					reader2.Read();
 					while (reader2.Read() && reader2.Name!= "sequence"){
+						var instru = reader2.GetAttribute("type");
+						switch(instru){
+							case "drum1" : D1playing = true;
+							break;
+							case "drum2" : D2playing = true;
+							break;
+							case "guitare" : Gplaying = true;
+							break;
+							case "basse" : Bplaying = true;
+							break;
+							case "piano" : Pplaying = true;
+							break;
+							case "melodie" : Mplaying = true;
+							break;
+							default : break;
+						}
 						var code = reader2.GetAttribute("clip");
 						switch(code){
 							case "D11" : Drum1.clip = D11;

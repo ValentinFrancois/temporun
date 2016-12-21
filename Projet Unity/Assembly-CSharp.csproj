@@ -47,6 +47,8 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\AspectUtility.cs" />
      <Compile Include="Assets\Scripts\ConversionMP3.cs" />
+     <Compile Include="Assets\Scripts\Enregistrer.cs" />
+     <Compile Include="Assets\Scripts\GameOver\loadScene.cs" />
      <Compile Include="Assets\Scripts\Instructions\AnyKeyPressed.cs" />
      <Compile Include="Assets\Scripts\Instructions\InstructionsAnimees.cs" />
      <Compile Include="Assets\Scripts\Instructions\TextFadeIn.cs" />

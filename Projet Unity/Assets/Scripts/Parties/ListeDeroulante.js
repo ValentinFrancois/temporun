@@ -153,7 +153,7 @@ function Start () {
 function Update () {
 	if (IsStarted && IsPlaying){
 		Temps += Time.deltaTime;
-		avancement.GetComponent(RectTransform).sizeDelta.x = 500/Max*Temps*1.06f;
+		avancement.GetComponent(RectTransform).sizeDelta.x = 1f*500/Max*Temps;
 		textclock2 = CurrentTime.GetComponent(Text);
 		 min2 = (parseInt(Temps))/60;
 		 sec2 = (parseInt(Temps))%60;
