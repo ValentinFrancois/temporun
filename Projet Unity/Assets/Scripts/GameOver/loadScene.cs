@@ -15,6 +15,7 @@ public class loadScene : MonoBehaviour {
 		{
 			doc.Save(sw);
 		}
+		SceneManager.LoadScene(name);
 	}
 	public void QuitterSansEffacer(string name){
 		SceneManager.LoadScene(name);

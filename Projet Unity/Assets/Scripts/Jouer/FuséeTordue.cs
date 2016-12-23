@@ -13,9 +13,9 @@ public class FuséeTordue : MonoBehaviour {
 
     {
         FloorManager = GameObject.FindGameObjectWithTag("SolMan");
-
-        int randomNumber = UnityEngine.Random.Range(0, positions.Length);
-        transform.position = positions[randomNumber];
+		transform.position = new Vector3(15.5f, -1f, spawn.randomNumber-5f);
+        //int randomNumber = UnityEngine.Random.Range(0, positions.Length);
+        //transform.position = positions[randomNumber];
 
     }
 

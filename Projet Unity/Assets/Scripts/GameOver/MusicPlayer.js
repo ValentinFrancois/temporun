@@ -161,9 +161,13 @@ function Update () {
 		if (initTime>=0.5f && initTime<0.6f){
 			Eclair.GetComponent(Image).sprite = EclairCentre;
 		}
-		if (initTime>=0.6f && initTime<0.625f){
+		if (initTime >= 0.6f){
 			EclairPere.GetComponent(CanvasGroup).alpha=0;
+		}
+		if (initTime >= 0.6f && initTime < 0.7f){
 			GameOverPere.GetComponent(CanvasGroup).alpha=1;
+		}
+		if (initTime>=0.6f && initTime<0.625f){
 			GameOver.GetComponent(Image).sprite = ImageGameOver1;
 		}
 		if (initTime>=0.625f && initTime<0.65f){

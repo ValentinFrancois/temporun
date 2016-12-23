@@ -23,7 +23,7 @@ public class endSaut : StateMachineBehaviour {
 		if(Input.GetKeyDown(KeyCode.DownArrow)){
 			decalage-=1;
 		}
-		if (Time.time<=timer){
+		if (Time.time<=timer && !GameObject.Find("Perso").GetComponent<PersoController>().tombe){
 			GameObject.Find("Perso").transform.Translate(0,Time.deltaTime*10,0);
 			pos = GameObject.Find("Perso").transform.position.z;
 			if (decalage>0 && pos < -1 && decalergauche){
@@ -33,19 +33,27 @@ public class endSaut : StateMachineBehaviour {
 				decalage = 0;
 				decalergauche = false;
 			}
-			else if (decalage<0 && pos > -4 && decalerdroite){
+			else if (decalage<0 && pos > -4 && decalerdroite && !GameObject.Find("Perso").GetComponent<PersoController>().tombe){
 				GameObject.Find("Perso").transform.position+= new Vector3(0f,0f,-1f); 
 				GameObject.Find("Ombre").transform.position+= new Vector3(0f,0f,-1f); 
 				GameObject.Find("Perso").GetComponent<PersoController>().position+=1;
 				decalage = 0;
 				decalage = 0;
 				decalerdroite = false;
-			}			
+			}
+		}
+		else if(!GameObject.Find("Perso").GetComponent<PersoController>().tombe){
+				GameObject.Find("Perso").transform.Translate(0,-Time.deltaTime*10,0);
 		}
 	}
 
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+		if (!GameObject.Find("Perso").GetComponent<PersoController>().tombe){
+			GameObject.Find("Perso").transform.position = new Vector3(GameObject.Find("Perso").transform.position.x,-0.4f,GameObject.Find("Perso").transform.position.z); 
+			GameObject.Find("Perso").GetComponent<PersoController>().TouchSol = true;
+		}
+		//GameObject.Find("Perso").transform.position = new Vector3(GameObject.Find("Perso").transform.position.x,-0.6f,GameObject.Find("Perso").transform.position.z); 
 		GameObject.Find("Perso").GetComponent<Animator>().SetBool("saut",false);
 		GameObject.Find("Ombre").GetComponent<Animator>().SetBool("saut",false);
 	}

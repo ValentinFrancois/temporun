@@ -47,7 +47,7 @@ public class PersoController : MonoBehaviour {
 	public AudioClip M4; 
 
 	public GameObject solMan; 
-	private bool TouchSol = true; 
+	public bool TouchSol = true; 
 	private bool Saut = false; //To know if the player just jumped when he arrive on the middle of gate. 
 
 
@@ -64,6 +64,8 @@ public class PersoController : MonoBehaviour {
 	private SpriteRenderer melodie;
 	private SpriteRenderer synthe;
 	
+	public Transform rays;
+	
 	public bool mort;
 	float DeathTime;
 	float StopTime;
@@ -72,19 +74,20 @@ public class PersoController : MonoBehaviour {
 	public XmlElement partie;
 	XmlElement sequence;
 	public XmlDocument doc;
+	public bool tombe;
 	
 	int timecompteur;
 	
 	
 	void Start () {
-		 
+		 tombe = false;
 		 doc = new XmlDocument();
 		 doc.Load(Application.persistentDataPath + "/sauv.xml");
 
 		 partie = doc.CreateElement("partie");
 		 partie.SetAttribute("name","CurrentGame");
 		 DateTime thisDay = DateTime.Today;
-		 partie.SetAttribute("date",thisDay.ToString("MM/dd/yyyy"));
+		 partie.SetAttribute("date",thisDay.ToString("dd/MM/yyyy"));
 		 
 		 
 		mort = false;
@@ -116,15 +119,19 @@ public class PersoController : MonoBehaviour {
 
 	void Update () {
 		move = transform.position;
+		if (tombe){
+			GetComponent<Rigidbody>().isKinematic = false;
+			//transform.position += new Vector3(10f*Time.deltaTime, -5f*Time.deltaTime, 0f);
+		}
 		if (DeathTime > 0){
 			DeathTime+=Time.deltaTime;
 		}
 		if (DeathTime > 0 && DeathTime >= StopTime){
-			SceneManager.LoadScene("GameOver"); 
+			//SceneManager.LoadScene("GameOver"); 
+			GameObject.Find("Perso").GetComponent<Animator>().SetBool("mort",true);
 		}
 
-
-		if (Input.GetKeyDown (KeyCode.UpArrow) && TouchSol) {
+		if (Input.GetKeyDown (KeyCode.UpArrow) && TouchSol && !tombe) {
 			switch (position) {
 			case 0:
 				break;
@@ -151,7 +158,7 @@ public class PersoController : MonoBehaviour {
 		}
 
 
-		if (Input.GetKeyDown (KeyCode.DownArrow) && TouchSol) {
+		if (Input.GetKeyDown (KeyCode.DownArrow) && TouchSol && !tombe) {
 			switch (position) {
 
 			case 0:
@@ -198,19 +205,18 @@ public class PersoController : MonoBehaviour {
 			{
 				doc.Save(sw);
 			}
-
 			mort = true;
-			GetComponent<Collider>().isTrigger = true;
+			tombe = true;
+			//GetComponent<Collider>().isTrigger = true;
 			DeathTime = Time.time;
-			StopTime = DeathTime + 1f;
+			StopTime = DeathTime + 0.5f;		
 		}
 	}
 
 
 	void OnCollisionEnter(Collision c){
-		TouchSol = true;
+		//TouchSol = true;
 		if (c.gameObject.tag == "TRouge" ||c.gameObject.tag == "TBleu" ||c.gameObject.tag == "TJaune" ||c.gameObject.tag == "TVert"){
-
 			 sequence = doc.CreateElement("sequence");
 			 sequence.SetAttribute("time",timecompteur.ToString());
 			 			
@@ -223,7 +229,10 @@ public class PersoController : MonoBehaviour {
 			{
 				
 				instruCheck = instru; 
-				if (Saut == false) {
+				if (transform.position.y == -0.4f && c.transform.position.x > -8.4f) {
+					Quaternion rot = Quaternion.identity;
+					rot.eulerAngles = new Vector3(-90,0,0);
+					Instantiate(rays, c.transform.position, rot ,c.transform);
 					switch (instru) {
 
 					case 0:

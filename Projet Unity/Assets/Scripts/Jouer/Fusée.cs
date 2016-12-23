@@ -15,14 +15,14 @@ public class Fusée : MonoBehaviour {
     void Start()
 
     {
-        FloorManager = GameObject.FindGameObjectWithTag("SolMan");
-
+      FloorManager = GameObject.FindGameObjectWithTag("SolMan");
+		/*
         int randomNumber = Random.Range(0, positions.Length);
         transform.position = positions[randomNumber];
 		random = UnityEngine.Random.Range(0,2);
 		if (random==0){
 			transform.position += new Vector3(0,0.75f,0);
-		}
+		}*/
 
     }
 

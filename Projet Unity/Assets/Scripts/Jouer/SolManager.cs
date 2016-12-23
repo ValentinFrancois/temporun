@@ -20,13 +20,14 @@ public class SolManager : MonoBehaviour {
 	public Transform melodie_pf;
 	public Transform synthe_pf;
 	public Transform detecteur;
-	
+	public Transform particles;
 	Transform nouveau;
 	Transform fils;
 
-	int posAleat=3;
+	public static int posAleat=3;
+	public static int oldPosAleat;
 
-	private const int Y = -3; 
+	private const float Y = -3f; 
 	
 
 	void CreateNewfloor(){
@@ -55,6 +56,7 @@ public class SolManager : MonoBehaviour {
 
 			sample = 16; 
 			compteur = 0; 
+			oldPosAleat = posAleat;
 			posAleat = Random.Range(1,4);
 			for (int y = 0; y < 4; y++) {
 
@@ -96,12 +98,17 @@ public class SolManager : MonoBehaviour {
 					nouveau.GetChild(1).GetComponent<ParticleSystemRenderer>().sortingOrder = ((4+posAleat)%4+1)*2;
 					break;
 				}
-				Instantiate (detecteur, new Vector3 (16, 18, -2), Quaternion.identity);
 			}
 			if (instru < 4)
 				instru++;
-			else
+			else{
 				instru = 0; 
+			}
+			Quaternion rot = Quaternion.identity;
+			rot.eulerAngles = new Vector3(-90,0,0);
+			Instantiate(particles, new Vector3(16,Y,-2.5f), rot ,nouveau);
+			Instantiate (detecteur, new Vector3 (16, 18, -2), Quaternion.identity);
+
 		} 
 		
 
