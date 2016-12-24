@@ -11,6 +11,11 @@ public class spawn : MonoBehaviour {
 	public GameObject VieVerte;
 	public GameObject VieJaune;
 	
+	public GameObject MineBleue;
+	public GameObject MineRouge;
+	public GameObject MineVerte;
+	public GameObject MineJaune;
+	
 	public GameObject FuséeBleue;
 	public GameObject FuséeTordueBleue;
 	public GameObject FuséeRouge;
@@ -178,13 +183,36 @@ public class spawn : MonoBehaviour {
 							Instantiate (VieJaune, new Vector3(15.75f,0.5f,randomNumber), Quaternion.identity);
 						}
 					break;
-					default : Instantiate (Mine);
+					default :
+						if (randomNumber == -(1+SolManager.posAleat)%4-1){
+							Instantiate (MineRouge, new Vector3(15.75f,-2.85f,randomNumber), Quaternion.identity);
+						}
+						else if (randomNumber == -(2+SolManager.posAleat)%4-1){
+							Instantiate (MineBleue, new Vector3(15.75f,-2.85f,randomNumber), Quaternion.identity);
+						}
+						else if (randomNumber == -(3+SolManager.posAleat)%4-1){
+							Instantiate (MineVerte, new Vector3(15.75f,-2.85f,randomNumber), Quaternion.identity);
+						}
+						else if (randomNumber == -(4+SolManager.posAleat)%4-1){
+							Instantiate (MineJaune, new Vector3(15.75f,-2.85f,randomNumber), Quaternion.identity);
+						}
 					break;
 				}
 				compt = 0;
 			}
 			else {
-				Instantiate (Mine);
+				if (randomNumber == -(1+SolManager.posAleat)%4-1){
+					Instantiate (MineRouge, new Vector3(15.75f,-2.85f,randomNumber), Quaternion.identity);
+				}
+				else if (randomNumber == -(2+SolManager.posAleat)%4-1){
+					Instantiate (MineBleue, new Vector3(15.75f,-2.85f,randomNumber), Quaternion.identity);
+				}
+				else if (randomNumber == -(3+SolManager.posAleat)%4-1){
+					Instantiate (MineVerte, new Vector3(15.75f,-2.85f,randomNumber), Quaternion.identity);
+				}
+				else if (randomNumber == -(4+SolManager.posAleat)%4-1){
+					Instantiate (MineJaune, new Vector3(15.75f,-2.85f,randomNumber), Quaternion.identity);
+				}
 				compt++;
 			}
 			

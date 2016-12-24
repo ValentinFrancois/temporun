@@ -76,16 +76,41 @@ public class PersoController : MonoBehaviour {
 	public XmlDocument doc;
 	public bool tombe;
 	
-	int timecompteur;
+	bool isPaused;
 	
+	public static bool invincible;
+	
+	int timecompteur;
+	public static float clignote;
+	public static int isClignote;
+	
+	void Effacer() {
+		Debug.Log("effacer");
+		GetComponent<SpriteRenderer>().enabled = false;
+    }
+	void Afficher() {
+		Debug.Log("afficher");
+		GetComponent<SpriteRenderer>().enabled = true;
+    }
+    public static void Degats() {
+		PersoController.invincible = true;
+		PersoController.isClignote = 1;
+		PersoController.clignote = Time.time;
+    }
 	
 	void Start () {
+		invincible = false;
 		 tombe = false;
+		 isPaused = false;
 		 doc = new XmlDocument();
 		 doc.Load(Application.persistentDataPath + "/sauv.xml");
+		 XmlElement last = doc.DocumentElement.LastChild as XmlElement;
+		 if (last.GetAttribute("name")=="SampleRun-Automatic-Temporary-Save"){
+			 doc.DocumentElement.RemoveChild(doc.DocumentElement.LastChild);
+		 }
 
 		 partie = doc.CreateElement("partie");
-		 partie.SetAttribute("name","CurrentGame");
+		 partie.SetAttribute("name","SampleRun-Automatic-Temporary-Save");
 		 DateTime thisDay = DateTime.Today;
 		 partie.SetAttribute("date",thisDay.ToString("dd/MM/yyyy"));
 		 
@@ -116,8 +141,35 @@ public class PersoController : MonoBehaviour {
 		synthe = GameObject.FindGameObjectWithTag("Synthe").GetComponent<SpriteRenderer>();
 	}
 
-
+	public void FinPause(){
+		GameObject.Find("Pause").GetComponent<CanvasGroup>().alpha = 0;
+		Time.timeScale = 1;		
+		Drum.UnPause(); 
+		Piano.UnPause();
+		Basse.UnPause();
+		Guitare.UnPause();
+		Melodie.UnPause();	
+		isPaused = false;
+		
+	}
+	
 	void Update () {
+		if (invincible){
+			if (Time.time>=clignote && isClignote <= 10){
+				clignote+=0.1f;
+				if (isClignote%2 == 0){
+					Afficher();
+				}
+				else {
+					Effacer();
+				}
+				if (isClignote == 10){
+					invincible = false;
+				}
+				isClignote ++;
+				
+			}
+		}
 		move = transform.position;
 		if (tombe){
 			GetComponent<Rigidbody>().isKinematic = false;
@@ -129,6 +181,20 @@ public class PersoController : MonoBehaviour {
 		if (DeathTime > 0 && DeathTime >= StopTime){
 			//SceneManager.LoadScene("GameOver"); 
 			GameObject.Find("Perso").GetComponent<Animator>().SetBool("mort",true);
+		}
+		
+		if (Input.GetKeyDown (KeyCode.Escape) && !isPaused){
+			isPaused = true;
+			Time.timeScale = 0;		
+			Drum.Pause(); 
+			Piano.Pause();
+			Basse.Pause();
+			Guitare.Pause();
+			Melodie.Pause();		
+			GameObject.Find("Pause").GetComponent<CanvasGroup>().alpha = 1;
+		}
+		else if (Input.GetKeyDown (KeyCode.Escape) && isPaused){
+			FinPause();
 		}
 
 		if (Input.GetKeyDown (KeyCode.UpArrow) && TouchSol && !tombe) {

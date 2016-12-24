@@ -20,6 +20,9 @@ public class Enregistrer : MonoBehaviour {
 		
 		if (name!=""){
 			int NameExists = 0;
+			if (name=="SampleRun-Automatic-Temporary-Save"){
+				name+="-0";
+			}
 			for (int i=0; i<noms.Count; i++)
 			{
 				XmlElement currentNode = noms[i] as XmlElement;
