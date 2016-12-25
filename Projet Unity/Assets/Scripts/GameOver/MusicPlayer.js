@@ -137,6 +137,7 @@ function Start () {
 			var seconds = Mathf.FloorToInt(Max - minutes * 60);
 			var time = String.Format("{0:00}:{1:00}", minutes, seconds);
 			EndTime.GetComponent(Text).text = time;
+			break;
 			
 		 } 
 	 }

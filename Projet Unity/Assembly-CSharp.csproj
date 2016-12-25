@@ -74,6 +74,7 @@
      <Compile Include="Assets\Scripts\Jouer\test.cs" />
      <Compile Include="Assets\Scripts\Jouer\testHalo.cs" />
      <Compile Include="Assets\Scripts\Jouer\translate.cs" />
+     <Compile Include="Assets\Scripts\Menu\EraseTempSauv.cs" />
      <Compile Include="Assets\Scripts\Menu\LoadLevel.cs" />
      <Compile Include="Assets\Scripts\Menu\ScrollClouds.cs" />
      <Compile Include="Assets\Scripts\Menu\ScrollMontagnes1.cs" />
