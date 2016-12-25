@@ -1,6 +1,7 @@
 ﻿#pragma strict
 import System.Xml;
 import System.IO;
+import System.Text;
 var XMLFile2 : TextAsset;
 var liste : Transform;
 var bouton : GameObject;
@@ -75,8 +76,6 @@ var Gplaying;
 var Mplaying;
 var Pplaying;
 
-var XMLFile : WWW;
-
 function Start () {
 	Temps = 0;
 	tabad = GetComponents(AudioSource);
@@ -93,9 +92,17 @@ function Start () {
 	Pplaying = false;
 	Mplaying = false;
 	
-	 XMLFile = new WWW("file:///" + Application.persistentDataPath + "/sauv.xml");
-	 yield XMLFile;
-	 var reader:XmlTextReader = new XmlTextReader(new StringReader(XMLFile.text));
+	var doc = new XmlDocument();
+	doc.Load(Application.persistentDataPath + "/sauv.xml");
+	if(doc.DocumentElement.HasChildNodes){
+		var first = doc.DocumentElement.FirstChild as XmlElement;
+		if (first.GetAttribute("name")=="SampleRun-Automatic-Temporary-Save"){
+			doc.DocumentElement.RemoveChild(doc.DocumentElement.FirstChild);
+			var sw = new StreamWriter(Application.persistentDataPath + "/sauv.xml", false, Encoding.UTF8); //Set encoding
+			doc.Save(sw);
+		}
+	}	
+	 var reader:XmlTextReader = new XmlTextReader(new StreamReader(Application.persistentDataPath + "/sauv.xml", Encoding.UTF8));
 
 	 var y = 0;
 	 while(reader.Read())
@@ -175,7 +182,7 @@ function Update () {
 		 }
 		if (Temps >= Sequence + 8){
 			Sequence += 8;
-			var reader3:XmlTextReader = new XmlTextReader(new StringReader(XMLFile.text));
+			var reader3:XmlTextReader = new XmlTextReader(new StreamReader(Application.persistentDataPath + "/sauv.xml", Encoding.UTF8));
 			 while(reader3.Read())
 			 {
 				 if(reader3.Name == "partie" && reader3.NodeType == XmlNodeType.Element)
@@ -310,7 +317,7 @@ function Pause (){
 }
 
 function Play() {
-	var reader2:XmlTextReader = new XmlTextReader(new StringReader(XMLFile.text));
+	var reader2:XmlTextReader = new XmlTextReader(new StreamReader(Application.persistentDataPath + "/sauv.xml", Encoding.UTF8));
 	if (IsPlaying==0 && IsStarted ==1){
 		if (D1playing) Drum1.UnPause();
 		if (D2playing)Drum2.UnPause();
@@ -321,154 +328,151 @@ function Play() {
 		IsPlaying = 1;		
 	}
 	else {
-		if(XMLFile != null)
-		 {	 
-			Drum1.Pause();
-			Drum2.Pause();
-			Basse.Pause();
-			Guitare.Pause();
-			Melodie.Pause();
-			Piano.Pause();
-			Drum1.time=0f;
-			Drum2.time=0f;
-			Basse.time=0f;
-			Guitare.time=0f;
-			Melodie.time=0f;
-			Piano.time=0f;
-			D1playing = false;
-			D2playing = false;
-			Gplaying = false;
-			Bplaying = false;
-			Pplaying = false;
-			Mplaying = false;
-			Temps = 0;
-			Sequence = 0;
-			IsStarted = 1;
-			IsPlaying = 1;
-			avancement.GetComponent(RectTransform).sizeDelta.x = 0f;
-			 textclock1 = EndTime.GetComponent(Text);
-			 min1 = Max/60;
-			 sec1 = Max%60;
-			 if (min1 > 9){
-				 if (sec1 > 9){
-					 textclock1.text = min1+":"+sec1;
-				 }
-				 else {
-					 textclock1.text = min1+":0"+sec1;
-				 }
+		Drum1.Pause();
+		Drum2.Pause();
+		Basse.Pause();
+		Guitare.Pause();
+		Melodie.Pause();
+		Piano.Pause();
+		Drum1.time=0f;
+		Drum2.time=0f;
+		Basse.time=0f;
+		Guitare.time=0f;
+		Melodie.time=0f;
+		Piano.time=0f;
+		D1playing = false;
+		D2playing = false;
+		Gplaying = false;
+		Bplaying = false;
+		Pplaying = false;
+		Mplaying = false;
+		Temps = 0;
+		Sequence = 0;
+		IsStarted = 1;
+		IsPlaying = 1;
+		avancement.GetComponent(RectTransform).sizeDelta.x = 0f;
+		 textclock1 = EndTime.GetComponent(Text);
+		 min1 = Max/60;
+		 sec1 = Max%60;
+		 if (min1 > 9){
+			 if (sec1 > 9){
+				 textclock1.text = min1+":"+sec1;
 			 }
 			 else {
-				 if (sec1 > 9){
-					 textclock1.text = "0"+min1+":"+sec1;
-				 }
-				 else {
-					 textclock1.text = "0"+min1+":0"+sec1;
-				 }
+				 textclock1.text = min1+":0"+sec1;
 			 }
-			 while(reader2.Read())
-			 {
-				 var NomPartie = reader2.GetAttribute("name");
-				 if(reader2.Name == "partie" && reader2.NodeType == XmlNodeType.Element && NomPartie == PartiePlaying)
-				 {  
-					reader2.Read();
-					reader2.Read();
-					while (reader2.Read() && reader2.Name!= "sequence"){
-						var instru = reader2.GetAttribute("type");
-						switch(instru){
-							case "drum1" : D1playing = true;
-							break;
-							case "drum2" : D2playing = true;
-							break;
-							case "guitare" : Gplaying = true;
-							break;
-							case "basse" : Bplaying = true;
-							break;
-							case "piano" : Pplaying = true;
-							break;
-							case "melodie" : Mplaying = true;
-							break;
-							default : break;
-						}
-						var code = reader2.GetAttribute("clip");
-						switch(code){
-							case "D11" : Drum1.clip = D11;
-							Drum1.Play();
-							break;
-							case "D12" : Drum1.clip = D12;
-							Drum1.Play();
-							break;
-							case "D13" : Drum1.clip = D14;
-							Drum1.Play();
-							break;
-							case "D14" : Drum1.clip = D14;
-							Drum1.Play();
-							break;
-							case "D21" : Drum2.clip = D21;
-							Drum2.Play();
-							break;
-							case "D22" : Drum2.clip = D22;
-							Drum2.Play();
-							break;
-							case "D23" : Drum2.clip = D24;
-							Drum2.Play();
-							break;
-							case "D24" : Drum2.clip = D24;
-							Drum2.Play();
-							break;
-							case "P1" : Piano.clip = P1;
-							Piano.Play();
-							break;
-							case "P2" : Piano.clip = P2;
-							Piano.Play();
-							break;
-							case "P3" : Piano.clip = P4;
-							Piano.Play();
-							break;
-							case "P4" : Piano.clip = P4;
-							Piano.Play();
-							break;
-							case "G1" : Guitare.clip = G1;
-							Guitare.Play();
-							break;
-							case "G2" : Guitare.clip = G2;
-							Guitare.Play();
-							break;
-							case "G3" : Guitare.clip = G4;
-							Guitare.Play();
-							break;
-							case "G4" : Guitare.clip = G4;
-							Guitare.Play();
-							break;
-							case "M1" : Melodie.clip = M1;
-							Melodie.Play();
-							break;
-							case "M2" : Melodie.clip = M2;
-							Melodie.Play();
-							break;
-							case "M3" : Melodie.clip = M4;
-							Melodie.Play();
-							break;
-							case "M4" : Melodie.clip = M4;
-							Melodie.Play();
-							break;
-							case "B1" : Basse.clip = B1;
-							Basse.Play();
-							break;
-							case "B2" : Basse.clip = B2;
-							Basse.Play();
-							break;
-							case "B3" : Basse.clip = B4;
-							Basse.Play();
-							break;
-							case "B4" : Basse.clip = B4;
-							Basse.Play();
-							break;
-							default : break;
-						}
-					}
-				 } 
-			 } 
 		 }
+		 else {
+			 if (sec1 > 9){
+				 textclock1.text = "0"+min1+":"+sec1;
+			 }
+			 else {
+				 textclock1.text = "0"+min1+":0"+sec1;
+			 }
+		 }
+		 while(reader2.Read())
+		 {
+			 var NomPartie = reader2.GetAttribute("name");
+			 if(reader2.Name == "partie" && reader2.NodeType == XmlNodeType.Element && NomPartie == PartiePlaying)
+			 {  
+				reader2.Read();
+				reader2.Read();
+				while (reader2.Read() && reader2.Name!= "sequence"){
+					var instru = reader2.GetAttribute("type");
+					switch(instru){
+						case "drum1" : D1playing = true;
+						break;
+						case "drum2" : D2playing = true;
+						break;
+						case "guitare" : Gplaying = true;
+						break;
+						case "basse" : Bplaying = true;
+						break;
+						case "piano" : Pplaying = true;
+						break;
+						case "melodie" : Mplaying = true;
+						break;
+						default : break;
+					}
+					var code = reader2.GetAttribute("clip");
+					switch(code){
+						case "D11" : Drum1.clip = D11;
+						Drum1.Play();
+						break;
+						case "D12" : Drum1.clip = D12;
+						Drum1.Play();
+						break;
+						case "D13" : Drum1.clip = D14;
+						Drum1.Play();
+						break;
+						case "D14" : Drum1.clip = D14;
+						Drum1.Play();
+						break;
+						case "D21" : Drum2.clip = D21;
+						Drum2.Play();
+						break;
+						case "D22" : Drum2.clip = D22;
+						Drum2.Play();
+						break;
+						case "D23" : Drum2.clip = D24;
+						Drum2.Play();
+						break;
+						case "D24" : Drum2.clip = D24;
+						Drum2.Play();
+						break;
+						case "P1" : Piano.clip = P1;
+						Piano.Play();
+						break;
+						case "P2" : Piano.clip = P2;
+						Piano.Play();
+						break;
+						case "P3" : Piano.clip = P4;
+						Piano.Play();
+						break;
+						case "P4" : Piano.clip = P4;
+						Piano.Play();
+						break;
+						case "G1" : Guitare.clip = G1;
+						Guitare.Play();
+						break;
+						case "G2" : Guitare.clip = G2;
+						Guitare.Play();
+						break;
+						case "G3" : Guitare.clip = G4;
+						Guitare.Play();
+						break;
+						case "G4" : Guitare.clip = G4;
+						Guitare.Play();
+						break;
+						case "M1" : Melodie.clip = M1;
+						Melodie.Play();
+						break;
+						case "M2" : Melodie.clip = M2;
+						Melodie.Play();
+						break;
+						case "M3" : Melodie.clip = M4;
+						Melodie.Play();
+						break;
+						case "M4" : Melodie.clip = M4;
+						Melodie.Play();
+						break;
+						case "B1" : Basse.clip = B1;
+						Basse.Play();
+						break;
+						case "B2" : Basse.clip = B2;
+						Basse.Play();
+						break;
+						case "B3" : Basse.clip = B4;
+						Basse.Play();
+						break;
+						case "B4" : Basse.clip = B4;
+						Basse.Play();
+						break;
+						default : break;
+					}
+				}
+			 } 
+		 } 
 	}
 }
 

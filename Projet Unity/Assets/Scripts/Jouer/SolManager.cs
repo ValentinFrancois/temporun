@@ -62,22 +62,22 @@ public class SolManager : MonoBehaviour {
 
 				switch (instru) {
 					case 5:
-					Instantiate (batterie_pf, new Vector3 (14,0,-2), Quaternion.identity);
+					Instantiate (batterie_pf, new Vector3 (14,0,-1.5f), Quaternion.identity);
 						break;
 					case 0:
-					Instantiate (piano_pf, new Vector3 (14,0,-2), Quaternion.identity);
+					Instantiate (piano_pf, new Vector3 (14,0,-1.5f), Quaternion.identity);
 						break;
 					case 1:
-					Instantiate (basse_pf, new Vector3 (14,0,-2), Quaternion.identity);
+					Instantiate (basse_pf, new Vector3 (14,0,-1.5f), Quaternion.identity);
 						break;
 					case 2:
-					Instantiate (guitare_pf, new Vector3 (14,0,-2), Quaternion.identity);
+					Instantiate (guitare_pf, new Vector3 (14,0,-1.5f), Quaternion.identity);
 						break;
 					case 3:
-					Instantiate (melodie_pf, new Vector3 (14,0,-2), Quaternion.identity);
+					Instantiate (melodie_pf, new Vector3 (14,0,-1.5f), Quaternion.identity);
 						break;
 					case 4:
-					Instantiate (synthe_pf, new Vector3 (14,0,-2), Quaternion.identity);
+					Instantiate (synthe_pf, new Vector3 (14,0,-1.5f), Quaternion.identity);
 						break;
 				}
 				switch (y) {

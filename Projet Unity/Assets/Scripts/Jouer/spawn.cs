@@ -4,7 +4,6 @@ using System.Collections;
 public class spawn : MonoBehaviour {
     
 	public GameObject Comete;
-    public GameObject Mine;
 	
 	public GameObject VieBleue;
 	public GameObject VieRouge;
@@ -50,13 +49,16 @@ public class spawn : MonoBehaviour {
 
 	void Update(){
 		temps += Time.deltaTime;
-		if (temps>=8*constante && difficulte > 0.2f){
+		if (temps>=1.3f*constante && difficulte > 0.1f){
 			difficulte-=0.05f;
-			if (constante>15){
+			if (constante<2){
+				constante+=2;
+			} 
+			else if (constante>15){
 				constante+=15;
 			}
 			else{
-				constante+=constante*constante/10;
+				constante+=constante*constante/11;
 			}
 			
 		}
@@ -150,7 +152,7 @@ public class spawn : MonoBehaviour {
 		}
 		if (temps > compteurMine && SolManager.compteur > 1 && SolManager.compteur < 15){
 			compt+=1;
-			if (compt > 5){
+			if (compt > 5 && PersoController.perso_vie<3){
 				int choix = Random.Range(0,6);
 				randomNumber = -1*Random.Range(1, 5);
 				

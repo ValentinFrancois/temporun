@@ -85,11 +85,9 @@ public class PersoController : MonoBehaviour {
 	public static int isClignote;
 	
 	void Effacer() {
-		Debug.Log("effacer");
 		GetComponent<SpriteRenderer>().enabled = false;
     }
 	void Afficher() {
-		Debug.Log("afficher");
 		GetComponent<SpriteRenderer>().enabled = true;
     }
     public static void Degats() {
@@ -104,9 +102,11 @@ public class PersoController : MonoBehaviour {
 		 isPaused = false;
 		 doc = new XmlDocument();
 		 doc.Load(Application.persistentDataPath + "/sauv.xml");
-		 XmlElement last = doc.DocumentElement.LastChild as XmlElement;
-		 if (last.GetAttribute("name")=="SampleRun-Automatic-Temporary-Save"){
-			 doc.DocumentElement.RemoveChild(doc.DocumentElement.LastChild);
+		 if(doc.DocumentElement.HasChildNodes){
+			 XmlElement last = doc.DocumentElement.FirstChild as XmlElement;
+			 if (last.GetAttribute("name")=="SampleRun-Automatic-Temporary-Save"){
+				 doc.DocumentElement.RemoveChild(doc.DocumentElement.FirstChild);
+			 }
 		 }
 
 		 partie = doc.CreateElement("partie");
@@ -171,10 +171,6 @@ public class PersoController : MonoBehaviour {
 			}
 		}
 		move = transform.position;
-		if (tombe){
-			GetComponent<Rigidbody>().isKinematic = false;
-			//transform.position += new Vector3(10f*Time.deltaTime, -5f*Time.deltaTime, 0f);
-		}
 		if (DeathTime > 0){
 			DeathTime+=Time.deltaTime;
 		}
@@ -264,15 +260,20 @@ public class PersoController : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider col)
     {
-		if (col.tag == "trou" && col.transform.localPosition.x>=11){
-			doc.DocumentElement.AppendChild(partie);
-			
-			using(TextWriter sw = new StreamWriter(Application.persistentDataPath + "/sauv.xml", false, Encoding.ASCII)) //Set encoding
+		if (col.tag == "trou" /*&& col.transform.localPosition.x>=11*/){
+			GetComponent<Rigidbody>().isKinematic = false;
+			mort = true;
+			tombe = true;
+			if(doc.DocumentElement.HasChildNodes){
+				doc.DocumentElement.InsertBefore(partie, doc.DocumentElement.FirstChild);
+			}
+			else {
+				doc.DocumentElement.AppendChild(partie);
+			}
+			using(TextWriter sw = new StreamWriter(Application.persistentDataPath + "/sauv.xml", false, Encoding.UTF8)) //Set encoding
 			{
 				doc.Save(sw);
 			}
-			mort = true;
-			tombe = true;
 			//GetComponent<Collider>().isTrigger = true;
 			DeathTime = Time.time;
 			StopTime = DeathTime + 0.5f;		
@@ -295,7 +296,7 @@ public class PersoController : MonoBehaviour {
 			{
 				
 				instruCheck = instru; 
-				if (transform.position.y == -0.4f && c.transform.position.x > -8.4f) {
+				if (transform.position.y == -0.4f) {
 					Quaternion rot = Quaternion.identity;
 					rot.eulerAngles = new Vector3(-90,0,0);
 					Instantiate(rays, c.transform.position, rot ,c.transform);

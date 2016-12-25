@@ -66,11 +66,13 @@
      <Compile Include="Assets\Scripts\Jouer\Translate_instru.cs" />
      <Compile Include="Assets\Scripts\Jouer\Vie.cs" />
      <Compile Include="Assets\Scripts\Jouer\clock.cs" />
+     <Compile Include="Assets\Scripts\Jouer\debris.cs" />
      <Compile Include="Assets\Scripts\Jouer\endSaut.cs" />
      <Compile Include="Assets\Scripts\Jouer\mort.cs" />
      <Compile Include="Assets\Scripts\Jouer\rotation.cs" />
      <Compile Include="Assets\Scripts\Jouer\spawn.cs" />
      <Compile Include="Assets\Scripts\Jouer\test.cs" />
+     <Compile Include="Assets\Scripts\Jouer\testHalo.cs" />
      <Compile Include="Assets\Scripts\Jouer\translate.cs" />
      <Compile Include="Assets\Scripts\Menu\LoadLevel.cs" />
      <Compile Include="Assets\Scripts\Menu\ScrollClouds.cs" />

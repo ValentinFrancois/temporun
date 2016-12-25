@@ -15,7 +15,7 @@ public class Enregistrer : MonoBehaviour {
 		XmlDocument doc = new XmlDocument();
 		doc.Load(Application.persistentDataPath + "/sauv.xml");
 		
-		XmlElement partie = doc.DocumentElement.LastChild as XmlElement;
+		XmlElement partie = doc.DocumentElement.FirstChild as XmlElement;
 		XmlNodeList noms = doc.DocumentElement.ChildNodes;
 		
 		if (name!=""){
@@ -38,7 +38,7 @@ public class Enregistrer : MonoBehaviour {
 				name = name+"-"+suffixe;
 			}
 			partie.SetAttribute("name",name);
-			using(TextWriter sw = new StreamWriter(Application.persistentDataPath + "/sauv.xml", false, Encoding.ASCII)) //Set encoding
+			using(TextWriter sw = new StreamWriter(Application.persistentDataPath + "/sauv.xml", false, Encoding.UTF8)) //Set encoding
 			{
 				doc.Save(sw);
 			}
