@@ -105,6 +105,12 @@
  <Reference Include="UnityEngine.Analytics">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
+ <Reference Include="NAudio">
+ <HintPath>C:/Users/Valentin/UTC/Cours/A16/SI28/Jeu Vidéo/temporun-master/Projet Unity/Assets/Enregistrement MP3/NAudio.dll</HintPath>
+ </Reference>
+ <Reference Include="NAudio.WindowsMediaFormat">
+ <HintPath>C:/Users/Valentin/UTC/Cours/A16/SI28/Jeu Vidéo/temporun-master/Projet Unity/Assets/Enregistrement MP3/NAudio.WindowsMediaFormat.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

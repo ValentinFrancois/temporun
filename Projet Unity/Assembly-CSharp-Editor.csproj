@@ -88,6 +88,12 @@
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
+ <Reference Include="NAudio">
+ <HintPath>C:/Users/Valentin/UTC/Cours/A16/SI28/Jeu Vidéo/temporun-master/Projet Unity/Assets/Enregistrement MP3/NAudio.dll</HintPath>
+ </Reference>
+ <Reference Include="NAudio.WindowsMediaFormat">
+ <HintPath>C:/Users/Valentin/UTC/Cours/A16/SI28/Jeu Vidéo/temporun-master/Projet Unity/Assets/Enregistrement MP3/NAudio.WindowsMediaFormat.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">

@@ -45,6 +45,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Enregistrement MP3\parser.cs" />
+     <Compile Include="Assets\Enregistrement MP3\testNaudio.cs" />
      <Compile Include="Assets\Scripts\AspectUtility.cs" />
      <Compile Include="Assets\Scripts\ChangeQuality.cs" />
      <Compile Include="Assets\Scripts\ConversionMP3.cs" />
@@ -96,6 +98,12 @@
  </Reference>
  <Reference Include="UnityEngine.Analytics">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="NAudio">
+ <HintPath>C:/Users/Valentin/UTC/Cours/A16/SI28/Jeu Vidéo/temporun-master/Projet Unity/Assets/Enregistrement MP3/NAudio.dll</HintPath>
+ </Reference>
+ <Reference Include="NAudio.WindowsMediaFormat">
+ <HintPath>C:/Users/Valentin/UTC/Cours/A16/SI28/Jeu Vidéo/temporun-master/Projet Unity/Assets/Enregistrement MP3/NAudio.WindowsMediaFormat.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

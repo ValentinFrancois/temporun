@@ -136,7 +136,7 @@ function Start () {
 			var minutes = Mathf.FloorToInt(Max / 60F);
 			var seconds = Mathf.FloorToInt(Max - minutes * 60);
 			var time = String.Format("{0:00}:{1:00}", minutes, seconds);
-			EndTime.GetComponent(Text).text = time;
+			EndTime.GetComponent(UnityEngine.UI.Text).text = time;
 			break;
 			
 		 } 
@@ -197,7 +197,7 @@ function Update () {
 	if (IsStarted && IsPlaying){
 		Temps += Time.deltaTime;
 		avancement.GetComponent(RectTransform).sizeDelta.x += 1f*500/Max*Time.deltaTime;
-		textclock2 = CurrentTime.GetComponent(Text);
+		textclock2 = CurrentTime.GetComponent(UnityEngine.UI.Text);
 		 min2 = (parseInt(Temps))/60;
 		 sec2 = (parseInt(Temps))%60;
 		 if (min2 > 9){
@@ -387,7 +387,7 @@ function Play() {
 		IsStarted = 1;
 		IsPlaying = 1;
 		avancement.GetComponent(RectTransform).sizeDelta.x = 0f;
-		 textclock1 = EndTime.GetComponent(Text);
+		 textclock1 = EndTime.GetComponent(UnityEngine.UI.Text);
 		 min1 = Max/60;
 		 sec1 = Max%60;
 		 if (min1 > 9){
