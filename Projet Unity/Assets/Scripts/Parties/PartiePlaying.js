@@ -22,6 +22,7 @@ function PartiePlay(){
 		}
 		
 		targetScript.PartiePlaying = gameObject.name;
+		GameObject.Find("NomPartie").GetComponent(UI.Text).text = gameObject.name;
 		targetScript.Max = duree;
 		targetScript.Replay();
 

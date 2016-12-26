@@ -15,15 +15,21 @@ function Update () {
 
 }
 
-function PlayPause(){
+function PlayPause(always : int){
 	targetScript = script.GetComponent(ListeDeroulante);
-	if (targetScript.IsStarted && targetScript.IsPlaying == 0){
-		targetScript.Play();	
-		im.sprite = texturePause;
+	if (always == 1){
+			targetScript.Pause();
+			im.sprite = texturePlay;
 	}
-	else if (targetScript.IsStarted && targetScript.IsPlaying == 1) {
-		targetScript.Pause();
-		im.sprite = texturePlay;
-		
+	else{
+		if (targetScript.IsStarted && targetScript.IsPlaying == 0){
+			targetScript.Play();	
+			im.sprite = texturePause;
+		}
+		else if (targetScript.IsStarted && targetScript.IsPlaying == 1) {
+			targetScript.Pause();
+			im.sprite = texturePlay;
+			
+		}
 	}
 }

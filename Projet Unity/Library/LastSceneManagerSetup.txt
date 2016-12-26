@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Enregistrement MP3/TestMix.unity
+- path: "Assets/Sc\xE8nes/JouerTest.unity"
   isLoaded: 1
   isActive: 1

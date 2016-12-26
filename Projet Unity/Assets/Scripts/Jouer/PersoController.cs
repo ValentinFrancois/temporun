@@ -143,6 +143,7 @@ public class PersoController : MonoBehaviour {
 
 	public void FinPause(){
 		GameObject.Find("Pause").GetComponent<CanvasGroup>().alpha = 0;
+		GameObject.Find("Horloge").GetComponent<CanvasGroup>().alpha = 1;
 		Time.timeScale = 1;		
 		Drum.UnPause(); 
 		Piano.UnPause();
@@ -187,6 +188,7 @@ public class PersoController : MonoBehaviour {
 			Basse.Pause();
 			Guitare.Pause();
 			Melodie.Pause();		
+			GameObject.Find("Horloge").GetComponent<CanvasGroup>().alpha = 0.5f;
 			GameObject.Find("Pause").GetComponent<CanvasGroup>().alpha = 1;
 		}
 		else if (Input.GetKeyDown (KeyCode.Escape) && isPaused){
