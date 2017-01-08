@@ -107,7 +107,7 @@ public class PersoController : MonoBehaviour {
     }
 	
 	void Start () {
-		
+		 Cursor.lockState = CursorLockMode.Locked;
 		 portails = new String[6];
 		 portails[0]="";
 		 portails[1]="";
