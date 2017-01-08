@@ -127,7 +127,7 @@ function Start () {
 		 {   
 			 var yoffset = bouton2.transform.position.y - bouton.transform.position.y;
 			 var newbouton = Instantiate(bouton, liste) as GameObject;
-			 newbouton.transform.position = bouton.transform.position + Vector3(0f,-y-yoffset-5f,0f);
+			 newbouton.transform.position = bouton.transform.position + Vector3(0f,-y-yoffset-2f,0f);
 			 newbouton.GetComponentInChildren(UI.Text).text = " "+reader.GetAttribute("name");
 			 
 			 length = 40-reader.GetAttribute("name").Length;

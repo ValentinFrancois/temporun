@@ -34,14 +34,14 @@ public class Comete : MonoBehaviour {
     void Update() {
 			
       if (compteur==2){
-				hole2.position = new Vector3(position.x/2, position.y/2, position.z/2)+ new Vector3(0,0.15f,0);
+				hole2.position = new Vector3(position.x/2f, position.y/2f, position.z/2f)+ new Vector3(0,0.152f,0);
 				Instantiate(CometeExplosion, transform.position, transform.rotation);
 				Instantiate(Debris, transform.position + new Vector3(-0.4f,0.3f,0), Quaternion.identity);
 				Destroy(this.gameObject);
 				Destroy(hole1.gameObject);
 			}
 			if (compteur==1){
-				hole1.position = new Vector3(position.x, position.y, position.z)+ new Vector3(0,0.15f,0);
+				hole1.position = new Vector3(position.x, position.y, position.z)+ new Vector3(0,0.2f,0);
 				Instantiate(CometeExplosion, transform.position, transform.rotation);
 				Instantiate(Debris, transform.position + new Vector3(-0.4f,0.3f,0), Quaternion.identity);
 				Destroy(this.gameObject);
